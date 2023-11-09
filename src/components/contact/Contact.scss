@@ -1,0 +1,91 @@
+@import "../../App.scss";
+
+.contact {
+  height: 100vh;
+  // padding-top: 60px;
+  .container {
+    @include container();
+    height: 100%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+
+    @include mobile {
+      justify-content: center;
+    }
+    .left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+
+      @include mobile {
+        display: none;
+      }
+      .contactImage {
+        width: 700px;
+        object-fit: cover;
+        @include mobile {
+          width: 350px;
+        }
+
+        @include tablet {
+          width: 100%;
+        }
+      }
+    }
+    .right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+
+      @include mobile {
+        max-width: 80%;
+      }
+
+      h1 {
+        font-size: 2rem;
+        color: lightgray;
+        align-self: flex-start;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+
+        input,
+        textarea {
+          padding: 8px;
+          border-radius: 6px;
+          caret-color: #f43f5e;
+          outline: 2px solid transparent;
+          outline-offset: 2px;
+          background-color: transparent;
+          border: 1px solid #444;
+          color: lightgray;
+          &::placeholder {
+            color: gray;
+          }
+          @include mobile {
+            padding: 10px;
+          }
+        }
+        button {
+          width: 100%;
+          padding: 8px;
+          font-weight: 500;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          background-color: #f43f5e;
+        }
+      }
+    }
+  }
+}

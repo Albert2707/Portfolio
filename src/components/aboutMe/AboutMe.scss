@@ -1,0 +1,111 @@
+@import "../../App.scss";
+.about {
+  height: calc(100vh - 60px);
+  .container {
+    @include container();
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin:0 auto;
+    gap:0;
+
+    @include mobile {
+      flex-direction: column-reverse;
+      justify-content: center;
+      padding:60px 20px 0 20px;
+      gap:20px
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      flex: 1;
+      gap: 8px;
+
+      @include mobile {
+        flex:initial;
+        align-items: center;
+      }
+      .career {
+        color: rgb(244 63 94);
+        text-align: start;
+        font-size: 2.5rem;
+        line-height: 40px;
+        font-weight: 500;
+        white-space: normal;
+        @include tablet {
+          font-size: 2rem;
+          line-height: 2rem;
+        }
+
+        @include mobile {
+          text-align: start;
+          font-size: 1.8rem;
+          line-height: 2rem;
+        }
+      }
+      .summary {
+        width: 550px;
+        margin: 10px 0;
+        font-size: 1.4rem;
+        text-align: start;
+        color: lightgray;
+
+        @include tablet {
+          width: 90%;
+          font-size: 1.2rem;
+        }
+        @include mobile {
+          width: 100%;
+          text-align: center;
+          font-size: 1rem;
+        }
+      }
+      .resume {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+        .btnResume {
+          background-color: rgb(244 63 94);
+          padding: 8px 16px;
+          border-radius: 8px;
+          color: white;
+          display: block;
+          text-decoration: none;
+          margin-top: 10px;
+          @include mobile {
+            display: none;
+          }
+        }
+      }
+    }
+    .rigth {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      width: 100%;
+
+      @include tablet {
+        flex: none;
+        width: 60%;
+      }
+      @include mobile {
+        width: 100%;
+      }
+      .image {
+        width: 600px;
+
+        @include tablet {
+          width: 100%;
+        }
+        @include mobile {
+          width: 350px;
+        }
+      }
+    }
+  }
+}

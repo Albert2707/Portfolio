@@ -1,0 +1,21 @@
+@import "../../app.scss";
+
+.writedText {
+  color: white;
+  text-align: start;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  font-weight: 500;
+  white-space: normal;
+
+  @include tablet {
+    font-size: 2rem;
+  }
+
+  @include mobile {
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 2rem;
+    white-space: normal;
+  }
+}

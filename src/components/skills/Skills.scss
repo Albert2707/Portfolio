@@ -1,0 +1,71 @@
+@import "../../App.scss";
+.skills {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mobile {
+    transform: none !important;
+  }
+  .container {
+    @include container();
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    .wrapper {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      flex-direction: column;
+      .top {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        gap: 20px;
+        @include mobile {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          transform: none !important;
+        }
+        .box {
+          width: 400px;
+          overflow: hidden;
+          padding: 10px;
+          border-radius: 8px;
+          background-color: #222;
+          height: 250px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+
+          @include mobile {
+            width: 80%;
+            height: 200px;
+            margin: auto;
+          }
+          .items {
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            img {
+              width: 50px;
+              overflow: hidden;
+              object-fit: cover;
+              @include mobile {
+                width: 40px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
