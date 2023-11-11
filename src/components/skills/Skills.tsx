@@ -28,7 +28,7 @@ const Skills = () => {
       <div className="container">
         <div className="wrapper">
           <motion.div className="top" variants={variants}>
-            <div className="box">
+            <motion.div className="box" variants={variants}>
               <div className="items">
                 <img
                   src="https://www.svgrepo.com/show/353925/javascript.svg"
@@ -72,8 +72,8 @@ const Skills = () => {
                   alt=""
                 />
               </div>
-            </div>
-            <div className="box">
+            </motion.div>
+            <motion.div className="box" variants={variants}>
               <div className="items">
                 <img
                   src="https://www.svgrepo.com/show/354119/nodejs-icon.svg"
@@ -97,8 +97,8 @@ const Skills = () => {
                   alt=""
                 />
               </div>
-            </div>
-            <div className="box">
+            </motion.div>
+            <motion.div className="box" variants={variants}>
               <div className="items">
                 <img
                   src="https://www.svgrepo.com/show/353935/jira.svg"
@@ -120,7 +120,7 @@ const Skills = () => {
                   alt=""
                 />
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

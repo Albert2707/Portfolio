@@ -2,88 +2,143 @@
 
 .contact {
   height: 100vh;
-  // padding-top: 60px;
   .container {
     @include container();
     height: 100%;
     display: flex;
     margin: auto;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 80px;
+    gap: 100px;
+    margin: 0 auto;
 
     @include mobile {
-      justify-content: center;
+      align-items: center;
     }
-    .left {
-      flex: 1;
+    .top {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 40px;
 
       @include mobile {
-        display: none;
+        justify-content: center;
       }
-      .contactImage {
-        width: 700px;
-        object-fit: cover;
-        @include mobile {
-          width: 350px;
-        }
-
-        @include tablet {
-          width: 100%;
-        }
-      }
-    }
-    .right {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
-      gap: 20px;
-
-      @include mobile {
-        max-width: 80%;
-      }
-
-      h1 {
-        font-size: 2rem;
-        color: lightgray;
-        align-self: flex-start;
-      }
-
-      .form {
+      .left {
+        flex: 1;
         display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 8px;
+        align-items: center;
 
-        input,
-        textarea {
-          padding: 8px;
-          border-radius: 6px;
-          caret-color: #f43f5e;
-          outline: 2px solid transparent;
-          outline-offset: 2px;
-          background-color: transparent;
-          border: 1px solid #444;
-          color: lightgray;
-          &::placeholder {
-            color: gray;
-          }
+        @include mobile {
+          display: none;
+        }
+        .contactImage {
+          width: 700px;
+          object-fit: cover;
           @include mobile {
-            padding: 10px;
+            width: 350px;
+          }
+
+          @include tablet {
+            width: 100%;
           }
         }
-        button {
+      }
+      .right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+
+        @include mobile {
+          max-width: 80%;
+        }
+
+        h1 {
+          font-size: 2rem;
+          color: lightgray;
+          align-self: flex-start;
+        }
+
+        .form {
+          display: flex;
+          flex-direction: column;
           width: 100%;
-          padding: 8px;
+          gap: 8px;
+
+          input,
+          textarea {
+            padding: 8px;
+            border-radius: 6px;
+            caret-color: #f43f5e;
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            background-color: transparent;
+            border: 1px solid #444;
+            color: lightgray;
+            &::placeholder {
+              color: gray;
+            }
+            @include mobile {
+              padding: 10px;
+            }
+          }
+          button {
+            width: 100%;
+            padding: 8px;
+            font-weight: 500;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            background-color: #f43f5e;
+          }
+        }
+      }
+    }
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      width: 50%;
+      margin-top: 20px;
+      div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+
+        .line {
+          height: 1px;
+          width: 100%;
+          background-color: #444;
+        }
+        .middle {
+          font-size: 18px;
+          line-height: 28px;
           font-weight: 500;
-          color: white;
-          border: none;
-          border-radius: 6px;
-          background-color: #f43f5e;
+          color: gray;
+        }
+      }
+
+      ul {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+        li {
+          list-style-type: none;
+
+          a {
+            text-decoration: none;
+            svg {
+              width: 32px;
+              height: 32px;
+            }
+          }
         }
       }
     }
