@@ -8,6 +8,7 @@
   @include mobile {
     transform: none !important;
   }
+
   .container {
     @include container();
     display: flex;
@@ -48,6 +49,7 @@
             width: 80%;
             height: 200px;
             margin: auto;
+            transform: none !important;
           }
           .items {
             flex-wrap: wrap;

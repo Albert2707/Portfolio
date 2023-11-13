@@ -105,6 +105,11 @@
       gap: 40px;
       width: 50%;
       margin-top: 20px;
+
+      @include mobile {
+        width: 80%;
+      }
+
       div {
         display: flex;
         align-items: center;
