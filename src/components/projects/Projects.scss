@@ -14,7 +14,7 @@
     color: lightgray;
 
     @include mobile {
-      padding-top: calc(100svh - 100px);
+      padding-top: calc(100svh - 80px);
       font-size: 20px;
     }
     .progressBar {
