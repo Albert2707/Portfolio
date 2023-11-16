@@ -38,6 +38,13 @@ const Links = () => {
           {item}
         </motion.a>
       ))}
+      <motion.a
+        href="/resume/Resume.pdf"
+        download={true}
+        variants={itemVariants}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >Resume</motion.a>
     </motion.div>
   );
 };
