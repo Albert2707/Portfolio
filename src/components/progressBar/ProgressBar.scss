@@ -1,0 +1,16 @@
+@import "../../App.scss";
+
+.progress {
+  display: none;
+  @include mobile {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    z-index: 10;
+    background: $rose;
+    transform-origin: 0%;
+  }
+}

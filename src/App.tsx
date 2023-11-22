@@ -3,6 +3,7 @@ import AboutMe from "./components/aboutMe/AboutMe";
 import ArrowDown from "./components/arrowDown/ArrowDown";
 import Contact from "./components/contact/Contact";
 import Navbar from "./components/navbar/Navbar";
+import ProgressBar from "./components/progressBar/ProgressBar";
 import Projects from "./components/projects/Projects";
 import Sidebar from "./components/sidebar/Sidebar";
 import Skills from "./components/skills/Skills";
@@ -10,6 +11,7 @@ import Skills from "./components/skills/Skills";
 function App() {
   return (
     <div>
+      <ProgressBar />
       <Navbar />
       <Sidebar />
       <section id="aboutMe">

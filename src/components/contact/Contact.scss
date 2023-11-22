@@ -9,9 +9,8 @@
     display: flex;
     margin: auto;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 100px;
     margin: 0 auto;
 
     @include mobile {
@@ -36,7 +35,7 @@
           display: none;
         }
         .contactImage {
-          width: 600px;
+          width: 500px;
           object-fit: cover;
           @include mobile {
             width: 350px;
