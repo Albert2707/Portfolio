@@ -37,9 +37,6 @@ const AboutMe = () => {
             >
             Resume
           </motion.a>
-          <motion.span>
-            <img src="/images/underline.svg" alt="" />
-          </motion.span>
             </div>
         </div>
         <motion.div
