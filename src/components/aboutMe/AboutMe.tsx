@@ -6,7 +6,7 @@ const AboutMe = () => {
     <div className="about">
       <div className="container">
         <div className="left">
-          <TypeWriter text="Hi, i'm name is Albert Joan" speed={50} />
+          <TypeWriter text="Hi, i'm Albert Joan" speed={50} />
           <h2 className="career"> Software Developer</h2>
           <motion.p
             className="summary"
