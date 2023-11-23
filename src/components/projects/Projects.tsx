@@ -84,11 +84,11 @@ const Projects = () => {
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    duration:1
+    duration: 1,
   });
   return (
     <div className="projects" ref={ref} id="projects">
-      <div className="progress">
+      <div className="progressDescktop">
         <h1>Featured Works</h1>
         <motion.div style={{ scaleX }} className="progressBar"></motion.div>
       </div>
