@@ -21,7 +21,7 @@ const ArrowDown = () => {
     target: refArrow,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "150%"]);
   return (
     <motion.div className="downArrow" ref={refArrow} style={{ y }}>
       <motion.span variants={arrow} initial="initial" animate="animate">

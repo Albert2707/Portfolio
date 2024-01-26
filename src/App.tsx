@@ -18,10 +18,10 @@ function App() {
         <AboutMe />
         <ArrowDown />
       </section>
-      <Projects />
-      <section id="skills">
-        <Skills />
+      <section id="projects">
+        <Projects />
       </section>
+      <Skills />
       <section id="contact">
         <Contact />
       </section>

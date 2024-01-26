@@ -1,10 +1,19 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import TypeWriter from "../typeWriter/TypeWriter";
 import "./AboutMe.scss";
+import { useRef } from "react";
 const AboutMe = () => {
+  const imageRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: imageRef,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  console.log(y);
   return (
     <div className="about">
-      <div className="container">
+      <motion.div className="container" ref={imageRef} style={{ y }}>
         <div className="left">
           <TypeWriter text="Hi, i'm Albert Joan" speed={50} />
           <h2 className="career"> Software Developer</h2>
@@ -19,25 +28,24 @@ const AboutMe = () => {
             most important in the working environment.
           </motion.p>
           <div className="resume">
-
-          <motion.a
-            href="/resume/Resume.pdf"
-            download={true}
-            initial={{ scale: 0, x: -50 }}
-            animate={{ scale: 1, x: 0 }}
-            transition={{
-              type: "spring",
-              damping: 15,
-              stiffness: 400,
-              duration: 0.3,
-            }}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.8 }}
-            className="btnResume"
+            <motion.a
+              href="/resume/Resume.pdf"
+              download={true}
+              initial={{ scale: 0, x: -50 }}
+              animate={{ scale: 1, x: 0 }}
+              transition={{
+                type: "spring",
+                damping: 15,
+                stiffness: 400,
+                duration: 0.3,
+              }}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
+              className="btnResume"
             >
-            Resume
-          </motion.a>
-            </div>
+              Resume
+            </motion.a>
+          </div>
         </div>
         <motion.div
           initial={{ y: -100 }}
@@ -47,7 +55,7 @@ const AboutMe = () => {
         >
           <img className="image" src="/images/programmingzRed.svg" alt="" />
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 };

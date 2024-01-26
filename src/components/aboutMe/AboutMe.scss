@@ -1,13 +1,13 @@
 @import "../../App.scss";
 .about {
-  height: calc(100vh - 60px);
+height: 90%;
+display: flex;
+justify-content: center;
   .container {
     @include container();
     display: flex;
     height: 100%;
-    align-items: center;
     justify-content: space-between;
-    margin:0 auto;
     gap:0;
 
     @include mobile {
@@ -49,7 +49,7 @@
       .summary {
         width: 550px;
         margin: 10px 0;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         text-align: start;
         color: lightgray;
 
@@ -68,6 +68,7 @@
           background-color: rgb(244 63 94);
           padding: 8px 16px;
           border-radius: 8px;
+          font-size: 1rem;
           color: white;
           display: block;
           text-decoration: none;
@@ -93,7 +94,7 @@
         width: 100%;
       }
       .image {
-        width: 600px;
+        width: 700px;
 
         @include tablet {
           width: 100%;

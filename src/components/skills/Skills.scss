@@ -1,72 +1,58 @@
 @import "../../App.scss";
 .skills {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @include mobile {
-    transform: none !important;
-  }
+  background-color: #191919;
 
   .container {
     @include container();
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100%;
     width: 100%;
+    display: flex;
+    padding: 60px 0;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
     margin: 0 auto;
-    .wrapper {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      flex-direction: column;
-      .top {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        gap: 20px;
-        @include mobile {
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          transform: none !important;
-        }
-        .box {
-          width: 400px;
-          overflow: hidden;
-          padding: 10px;
-          border-radius: 8px;
-          background-color: #222;
-          height: 250px;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          align-items: center;
+    position: relative;
 
-          @include mobile {
-            width: 80%;
-            height: 200px;
-            margin: auto;
-            transform: none !important;
-          }
-          .items {
-            flex-wrap: wrap;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            img {
-              width: 50px;
-              overflow: hidden;
-              object-fit: cover;
-              @include mobile {
-                width: 40px;
-              }
-            }
-          }
-        }
+    &:hover .logos-slide {
+      animation-play-state: paused;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      z-index: 2;
+    }
+    &::before {
+      content: "";
+      left: 0;
+      background: linear-gradient(to left, rgba(255, 255, 255, 0), #191919);
+    }
+
+    &::after {
+      content: "";
+      right: 0;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), #191919);
+    }
+    @keyframes slide {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .logos-slide {
+      display: inline-block;
+      animation: 30s slide infinite linear;
+
+      img {
+        height: 70px;
+        margin: 0 40px;
       }
     }
   }
