@@ -7,6 +7,11 @@ const Projects = () => {
 
   const { scrollYProgress } = useScroll({
     target: biblosRef,
+    /* [0 1] when the end of the viewport touch
+    the top of the target the animation will be star*/
+
+    /* [1 1] when the end of the viewport arrive at then
+   of the target te animation will be finished */
     offset: ["0 1", "1 1"],
   });
 

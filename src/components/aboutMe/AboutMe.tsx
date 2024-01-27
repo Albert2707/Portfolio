@@ -8,7 +8,7 @@ const AboutMe = () => {
     target: imageRef,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   console.log(y);
   return (
