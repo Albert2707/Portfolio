@@ -39,8 +39,8 @@ const AboutMe = () => {
                 stiffness: 400,
                 duration: 0.3,
               }}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               className="btnResume"
             >
               Resume

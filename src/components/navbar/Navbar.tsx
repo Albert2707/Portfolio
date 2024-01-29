@@ -35,7 +35,12 @@ const Navbar = () => {
         </div>
 
         <div className="links">
-          <motion.ul className="" variants={variants}>
+          <motion.ul
+            className=""
+            variants={variants}
+            initial="initial"
+            animate="animate"
+          >
             <motion.a
               href="#aboutMe"
               variants={variants}
@@ -65,16 +70,22 @@ const Navbar = () => {
               Contact
             </motion.a>
           </motion.ul>
-          <motion.div className="socials" variants={variants}>
+          <motion.div
+            className="socials"
+            variants={variants}
+            initial="initial"
+            animate="animate"
+          >
             <motion.a
               href="https://www.linkedin.com/in/albert-joan-agramonte-suero-80b844247/"
               target="_blank"
               rel="noreferrer"
               className="socialLink"
-              variants={variants}
+              initial={{ y: 0 }}
+              animate={{ y: 0 }}
               whileHover={{
                 backgroundColor: "rgb(244 63 94)",
-                color: "white",
+                y: -3,
               }}
               transition={{ type: "spring", duration: 0.2 }}
             >
@@ -102,10 +113,11 @@ const Navbar = () => {
               href="https://github.com/Albert2707"
               target="_blank"
               className="socialLink"
-              variants={variants}
+              initial={{ y: 0 }}
+              animate={{ y: 0 }}
               whileHover={{
                 backgroundColor: "rgb(244 63 94)",
-                color: "white",
+                y: -3,
               }}
               transition={{ type: "spring", duration: 0.2 }}
             >
