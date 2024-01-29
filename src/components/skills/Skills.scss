@@ -49,10 +49,18 @@
     .logos-slide {
       display: inline-block;
       animation: 30s slide infinite linear;
+      @include mobile {
+        animation-duration: 20s;
+      }
 
       img {
         height: 70px;
         margin: 0 40px;
+
+        @include mobile {
+          height: 40px;
+          margin: 0 20px;
+        }
       }
     }
   }
