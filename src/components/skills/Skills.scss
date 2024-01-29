@@ -13,9 +13,10 @@
     white-space: nowrap;
     margin: 0 auto;
     position: relative;
-
-    &:hover .logos-slide {
-      animation-play-state: paused;
+    @media (min-width: 769px) {
+      &:hover .logos-slide {
+        animation-play-state:paused;
+      }
     }
 
     &::before,
