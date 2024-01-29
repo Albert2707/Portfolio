@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&family=Open+Sans:wght@300;400;500;600&display=swap");
 
-$rose:rgb(244 63 94);
+$rose: rgb(244 63 94);
 
 html {
   scroll-behavior: smooth;
@@ -19,12 +19,16 @@ body::-webkit-scrollbar {
   font-family: "Open Sans", sans-serif;
 }
 
-section {
-  height: 100vh;
+.section {
+  height: calc(100vh - 60px);
   width: 100vw;
   overflow: hidden;
 }
 
+.projects {
+  height: auto;
+  background-color: #222;
+}
 @mixin container() {
   width: 100%;
 

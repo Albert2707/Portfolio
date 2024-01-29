@@ -59,14 +59,6 @@ const Contact = () => {
                 rows={8}
               ></textarea>
               <motion.button
-                initial={{ scale: 0, x: -50 }}
-                animate={isInView ? { scale: 1, x: 0 } : { scale: 0, x: -50 }}
-                transition={{
-                  type: "spring",
-                  damping: 15,
-                  stiffness: 400,
-                  duration: 0.3,
-                }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.8 }}
               >

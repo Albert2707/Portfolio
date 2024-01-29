@@ -14,15 +14,15 @@ function App() {
       <ProgressBar />
       <Navbar />
       <Sidebar />
-      <section id="aboutMe">
+      <section id="aboutMe" className="section">
         <AboutMe />
         <ArrowDown />
       </section>
-      <Projects />
-      <section id="skills">
-        <Skills />
+      <section id="projects" className="projects">
+        <Projects />
       </section>
-      <section id="contact">
+      <Skills />
+      <section id="contact" className="section">
         <Contact />
       </section>
     </div>
