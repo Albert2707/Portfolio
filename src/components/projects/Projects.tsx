@@ -163,7 +163,7 @@ const Projects = () => {
           style={{ scale: scaleProgress3, opacity: opacityProgress3 }}
           ref={socialRef}
         >
-          <img src="/images/social.png" />
+          <img src="/images/multas.png" alt="Social" />
           <motion.div variants={infoMotion} className="hover-info">
             <motion.button
               variants={infoMotion}
