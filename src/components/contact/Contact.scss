@@ -1,7 +1,7 @@
 @import "../../App.scss";
 
 .contact {
-  height: 100vh;
+  height: 100%;
   background-color: #222;
   .container {
     @include container();
@@ -89,7 +89,7 @@
           }
           button {
             width: 100%;
-            height:40px;
+            height: 40px;
             font-size: 1rem;
             padding: 8px;
             font-weight: 500;

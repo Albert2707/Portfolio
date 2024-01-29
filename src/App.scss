@@ -19,12 +19,16 @@ body::-webkit-scrollbar {
   font-family: "Open Sans", sans-serif;
 }
 
-section {
+.section {
   height: calc(100vh - 60px);
   width: 100vw;
   overflow: hidden;
 }
 
+.projects {
+  height: auto;
+  background-color: #222;
+}
 @mixin container() {
   width: 100%;
 
