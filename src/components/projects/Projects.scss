@@ -34,16 +34,16 @@
       width: 1px;
       border-radius: 20px;
       position: absolute;
-      background-color: #d3d3d3;
+      background-color: #555;
       top: 0;
       bottom: 0;
     }
     .line-item {
-      left: 5px;
+      left: 10px;
       position: absolute;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      color: rgb(244 63 94);
       font-weight: medium;
-      color: lightgray;
     }
     @include tablet {
       display: none;

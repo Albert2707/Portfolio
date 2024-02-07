@@ -83,13 +83,13 @@ const Projects = () => {
     restDelta: 0.001,
   });
   //line-items
-  const y = useTransform(line, [0, 1], [0, 300]);
+  const y = useTransform(line, [0, 1], [0, 270]);
   const opacity = useTransform(line, [0, 1], [0, 1]);
-  const y1 = useTransform(multasLine, [0, 1], [300, 940]);
+  const y1 = useTransform(multasLine, [0, 1], [270, 920]);
   const opacity1 = useTransform(multasLine, [0, 1], [0, 1]);
-  const y2 = useTransform(fiverrline, [0, 1], [940, 1600]);
+  const y2 = useTransform(fiverrline, [0, 1], [920, 1550]);
   const opacity2 = useTransform(fiverrline, [0, 1], [0, 1]);
-  const y3 = useTransform(socialLine, [0, 1], [1600, 2230]);
+  const y3 = useTransform(socialLine, [0, 1], [1550, 2200]);
   const opacity3 = useTransform(socialLine, [0, 1], [0, 1]);
 
   return (
@@ -242,7 +242,6 @@ const Projects = () => {
             <motion.button
               variants={infoMotion}
               whileTap={{ scale: 0.9 }}
-              whileHover={{ color: "white", backgroundColor: "rgb(244 63 94)" }}
               transition={{ type: "spring", duration: 0.2 }}
             >
               View on GitHub
