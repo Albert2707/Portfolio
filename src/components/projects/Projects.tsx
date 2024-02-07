@@ -76,9 +76,9 @@ const Projects = () => {
   const scaleProgress3 = useTransform(social, [0, 1], [0.6, 1]);
   const opacityProgress3 = useTransform(social, [0, 1], [0.4, 1]);
 
-  const { scrollYProgress: verticalLine } = useScroll({ target: lineRef, offset:["0 1", "1 1"] });
+  const { scrollYProgress: verticalLine } = useScroll({ target: lineRef, offset:["0 1", "1.1 1"] });
   const scaleY = useSpring(verticalLine, {
-    stiffness: 150,
+    stiffness: 200,
     damping: 30,
     restDelta: 0.001,
   });
