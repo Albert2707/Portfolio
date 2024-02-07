@@ -1,11 +1,12 @@
 import { useRef } from "react";
 import "./Projects.scss";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 const Projects = () => {
   const biblosRef = useRef<HTMLImageElement>(null);
   const multasRef = useRef<HTMLImageElement>(null);
   const fiverrRef = useRef<HTMLImageElement>(null);
   const socialRef = useRef<HTMLImageElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
   const infoMotion = {
     rest: { opacity: 0, ease: "easeOut", duration: 0.2, type: "tween" },
     hover: {
@@ -43,6 +44,26 @@ const Projects = () => {
     target: socialRef,
     offset: ["0.3 1", "1 1"],
   });
+  const { scrollYProgress: line } = useScroll({
+    target: biblosRef,
+    offset: ["0 1", "1 1"],
+  });
+
+  const { scrollYProgress: multasLine } = useScroll({
+    target: multasRef,
+    offset: ["0 1", "1 1"],
+  });
+
+  const { scrollYProgress: fiverrline } = useScroll({
+    target: fiverrRef,
+    offset: ["0 1", "1 1"],
+  });
+
+  const { scrollYProgress: socialLine } = useScroll({
+    target: socialRef,
+    offset: ["0 1", "1 1"],
+  });
+
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
 
@@ -54,8 +75,61 @@ const Projects = () => {
 
   const scaleProgress3 = useTransform(social, [0, 1], [0.6, 1]);
   const opacityProgress3 = useTransform(social, [0, 1], [0.4, 1]);
+
+  const { scrollYProgress: verticalLine } = useScroll({ target: lineRef, offset:["0 1", "1 1"] });
+  const scaleY = useSpring(verticalLine, {
+    stiffness: 150,
+    damping: 30,
+    restDelta: 0.001,
+  });
+  //line-items
+  const y = useTransform(line, [0, 1], [0, 300]);
+  const opacity = useTransform(line, [0, 1], [0, 1]);
+  const y1 = useTransform(multasLine, [0, 1], [300, 940]);
+  const opacity1 = useTransform(multasLine, [0, 1], [0, 1]);
+  const y2 = useTransform(fiverrline, [0, 1], [940, 1600]);
+  const opacity2 = useTransform(fiverrline, [0, 1], [0, 1]);
+  const y3 = useTransform(socialLine, [0, 1], [1600, 2230]);
+  const opacity3 = useTransform(socialLine, [0, 1], [0, 1]);
+
   return (
     <div className="projectsContainer">
+      <div className="line-wrapper">
+        <div className="line"></div>
+        <motion.div
+          className="line2"
+          ref={lineRef}
+          style={{ scaleY }}
+        ></motion.div>
+        <motion.div
+          className="line-item"
+          ref={biblosRef}
+          style={{ y, opacity }}
+        >
+          Biblos
+        </motion.div>
+        <motion.div
+          className="line-item"
+          ref={multasRef}
+          style={{ y: y1, opacity: opacity1 }}
+        >
+          Multasab
+        </motion.div>
+        <motion.div
+          className="line-item"
+          ref={fiverrRef}
+          style={{ y: y2, opacity: opacity2 }}
+        >
+          FiverrClone
+        </motion.div>
+        <motion.div
+          className="line-item"
+          ref={socialRef}
+          style={{ y: y3, opacity: opacity3 }}
+        >
+          SocialNetwork
+        </motion.div>
+      </div>
       <div className="wrapper">
         <motion.div
           className="item"
@@ -168,6 +242,7 @@ const Projects = () => {
             <motion.button
               variants={infoMotion}
               whileTap={{ scale: 0.9 }}
+              whileHover={{ color: "white", backgroundColor: "rgb(244 63 94)" }}
               transition={{ type: "spring", duration: 0.2 }}
             >
               View on GitHub

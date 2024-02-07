@@ -8,6 +8,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+
+  .line-wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 60px;
+    top: 60px;
+    bottom: 60px;
+    position: absolute;
+
+    .line {
+      position: absolute;
+      background-color: #333;
+      height: 100%;
+      width: 1px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .line2 {
+      transform-origin: top;
+      width: 1px;
+      border-radius: 20px;
+      position: absolute;
+      background-color: #d3d3d3;
+      top: 0;
+      bottom: 0;
+    }
+    .line-item {
+      left: 5px;
+      position: absolute;
+      font-size: 1.2rem;
+      font-weight: medium;
+      color: lightgray;
+    }
+    @include tablet {
+      display: none;
+    }
+    @include mobile {
+      display: none;
+    }
+  }
 
   .wrapper {
     display: flex;
@@ -17,6 +61,7 @@
     width: 100%;
     height: 100%;
     align-items: center;
+
     .item {
       position: relative;
       overflow: hidden;

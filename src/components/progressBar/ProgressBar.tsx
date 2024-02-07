@@ -3,7 +3,6 @@ import { useRef } from "react";
 import "./ProgressBar.scss";
 
 const ProgressBar = () => {
-  const ref = useRef(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 150,
