@@ -139,7 +139,7 @@ const Projects = () => {
           ref={biblosRef}
           style={{ scale: scaleProgress, opacity: opacityProgress }}
         >
-          <img src="/images/biblos.png" />
+          <img src="/images/biblos.png" loading="lazy" />
           <motion.div variants={infoMotion} className="hover-info">
             <motion.button
               variants={infoMotion}
@@ -172,7 +172,7 @@ const Projects = () => {
           whileHover="hover"
           animate="rest"
         >
-          <img src="/images/multas.png" />
+          <img src="/images/multas.png" loading="lazy"/>
           <motion.div variants={infoMotion} className="hover-info">
             <motion.button
               variants={infoMotion}
@@ -205,7 +205,7 @@ const Projects = () => {
           style={{ scale: scaleProgress2, opacity: opacityProgress2 }}
           ref={fiverrRef}
         >
-          <img src="/images/fiverrClone.png" />
+          <img src="/images/fiverrClone.png" loading="lazy"/>
           <motion.div variants={infoMotion} className="hover-info">
             <motion.button
               variants={infoMotion}
@@ -237,7 +237,7 @@ const Projects = () => {
           style={{ scale: scaleProgress3, opacity: opacityProgress3 }}
           ref={socialRef}
         >
-          <img src="/images/multas.png" alt="Social" />
+          <img src="/images/multas.png" alt="Social" loading="lazy" />
           <motion.div variants={infoMotion} className="hover-info">
             <motion.button
               variants={infoMotion}

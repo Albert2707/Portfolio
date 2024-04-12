@@ -9,12 +9,11 @@ body {
   background-color: #191919;
   scrollbar-width: none;
 }
-body::-webkit-scrollbar {
-  width: 0; /* width of the entire scrollbar */
-}
+
 * {
   padding: 0;
   margin: 0;
+  scrollbar-width: none;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }

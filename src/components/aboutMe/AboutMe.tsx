@@ -53,7 +53,12 @@ const AboutMe = () => {
           transition={{ duration: 0.3 }}
           className="rigth"
         >
-          <img className="image" src="/images/programmingzRed.svg" alt="" />
+          <img
+            className="image"
+            src="/images/programmingzRed.svg"
+            alt=""
+            loading="lazy"
+          />
         </motion.div>
       </motion.div>
     </div>

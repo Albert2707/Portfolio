@@ -44,7 +44,7 @@ const Contact = () => {
               duration: 0.3,
             }}
           >
-            <img src="/images/message.svg" className="contactImage" alt="" />
+            <img src="/images/message.svg" className="contactImage" alt="" loading="lazy"/>
           </motion.div>
           <div className="right">
             <h1>Email me</h1>
