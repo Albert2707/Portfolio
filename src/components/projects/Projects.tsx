@@ -5,7 +5,6 @@ const Projects = () => {
   const biblosRef = useRef<HTMLImageElement>(null);
   const multasRef = useRef<HTMLImageElement>(null);
   const fiverrRef = useRef<HTMLImageElement>(null);
-  const socialRef = useRef<HTMLImageElement>(null);
   const energyRef = useRef<HTMLImageElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const infoMotion = {
@@ -41,10 +40,6 @@ const Projects = () => {
     offset: ["0.3 1", "1 1"],
   });
 
-  const { scrollYProgress: social } = useScroll({
-    target: socialRef,
-    offset: ["0.3 1", "1 1"],
-  });
   const { scrollYProgress: energy } = useScroll({
     target: energyRef,
     offset: ["0.3 1", "1 1"],
@@ -65,17 +60,11 @@ const Projects = () => {
     offset: ["0 1", "1 1"],
   });
 
-  const { scrollYProgress: socialLine } = useScroll({
-    target: socialRef,
-    offset: ["0 1", "1 1"],
-  });
-
-  
   const { scrollYProgress: energyLine } = useScroll({
     target: energyRef,
     offset: ["0 1", "1 1"],
   });
-  
+
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
 
@@ -84,9 +73,6 @@ const Projects = () => {
 
   const scaleProgress2 = useTransform(fiverr, [0, 1], [0.6, 1]);
   const opacityProgress2 = useTransform(fiverr, [0, 1], [0.4, 1]);
-
-  const scaleProgress3 = useTransform(social, [0, 1], [0.6, 1]);
-  const opacityProgress3 = useTransform(social, [0, 1], [0.4, 1]);
 
   const scaleProgress4 = useTransform(energy, [0, 1], [0.6, 1]);
   const opacityProgress4 = useTransform(energy, [0, 1], [0.4, 1]);
@@ -104,10 +90,7 @@ const Projects = () => {
   const opacity1 = useTransform(multasLine, [0, 1], [0, 1]);
   const y2 = useTransform(fiverrline, [0, 1], [920, 1550]);
   const opacity2 = useTransform(fiverrline, [0, 1], [0, 1]);
-  const y3 = useTransform(socialLine, [0, 1], [1550, 2200]);
-  const opacity3 = useTransform(socialLine, [0, 1], [0, 1]);
-
-  const y4 = useTransform(energyLine, [0, 1], [2200, 2830]);
+  const y4 = useTransform(energyLine, [0, 1], [1550, 2200]);
   const opacity4 = useTransform(energyLine, [0, 1], [0, 1]);
   return (
     <div className="projectsContainer">
@@ -139,17 +122,10 @@ const Projects = () => {
         >
           FiverrClone
         </motion.div>
-        <motion.div
-          className="line-item"
-          ref={socialRef}
-          style={{ y: y3, opacity: opacity3 }}
-        >
-          SocialNetwork
-        </motion.div>
 
         <motion.div
           className="line-item"
-          ref={socialRef}
+          ref={energyRef}
           style={{ y: y4, opacity: opacity4 }}
         >
           CleanEnergy
@@ -231,38 +207,6 @@ const Projects = () => {
           ref={fiverrRef}
         >
           <img src="/images/fiverrClone.png" loading="lazy" />
-          <motion.div variants={infoMotion} className="hover-info">
-            <motion.button
-              variants={infoMotion}
-              whileTap={{ scale: 0.9 }}
-              transition={{ type: "spring", duration: 0.2 }}
-            >
-              View on GitHub
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                />
-              </svg>
-            </motion.button>
-          </motion.div>
-        </motion.div>
-        <motion.div
-          className="item"
-          initial="rest"
-          whileHover="hover"
-          animate="rest"
-          style={{ scale: scaleProgress3, opacity: opacityProgress3 }}
-          ref={socialRef}
-        >
-          <img src="/images/social.png" alt="Social" loading="lazy" />
           <motion.div variants={infoMotion} className="hover-info">
             <motion.button
               variants={infoMotion}
