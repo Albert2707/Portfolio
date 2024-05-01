@@ -68,14 +68,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      
       img {
         flex: 1;
-        width: 800px;
+        width: 700px;
         object-fit: cover;
         border-radius: 10px;
-        @include laptop {
-          width: 700px;
-        }
         @include mobile {
           width: 100%;
         }
