@@ -31,13 +31,13 @@ const Contact = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert("Message sent");
+    setShow(true)
   };
   return (
     <div className="contact" ref={ref}>
-      {
-        show &&
-        <Confetti width={width} height={height} recycle={false} />
-      }
+      <div className="pruebas">
+        <Confetti width={width} height={height} recycle={false} run={show} />
+      </div>
 
       <div className="container">
         <div className="top">
@@ -69,9 +69,6 @@ const Contact = () => {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                onClick={() => {
-                  setShow(true)
-                }}
               >
                 send
               </motion.button>

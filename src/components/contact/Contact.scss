@@ -3,6 +3,14 @@
 .contact {
   height: 100%;
   background-color: #222;
+  position: relative;
+
+  .pruebas{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top:0;
+  }
   .container {
     @include container();
     height: 100%;

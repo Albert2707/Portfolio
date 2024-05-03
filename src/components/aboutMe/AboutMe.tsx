@@ -37,7 +37,7 @@ const AboutMe = () => {
                 stiffness: 400,
                 duration: 0.3,
               }}
-              whileHover={{ scale: 1.1, backgroundColor:"#f6f6f6", color:"rgb(244 63 94)"}}
+              whileHover={{ scale: 1.1, backgroundColor: "#f6f6f6", color: "rgb(244 63 94)" }}
               whileTap={{ scale: 0.9 }}
               className="btnResume"
             >
