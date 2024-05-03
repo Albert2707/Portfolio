@@ -1,6 +1,8 @@
-import { FormEvent, useRef } from "react";
+import { FormEvent, useRef, useState } from "react";
 import "./Contact.scss";
 import { motion, useInView } from "framer-motion";
+import Confetti from "react-confetti";
+import { useWindowSize } from 'usehooks-ts'
 
 const Contact = () => {
   const variants = {
@@ -22,8 +24,9 @@ const Contact = () => {
       opacity: 0,
     },
   };
-
+  const [show, setShow] = useState<boolean>(false);
   const ref = useRef(null);
+  const { width, height } = useWindowSize();
   const isInView = useInView(ref, { margin: "-50px" });
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,6 +34,11 @@ const Contact = () => {
   };
   return (
     <div className="contact" ref={ref}>
+      {
+        show &&
+        <Confetti width={width} height={height} recycle={false} />
+      }
+
       <div className="container">
         <div className="top">
           <motion.div
@@ -44,7 +52,7 @@ const Contact = () => {
               duration: 0.3,
             }}
           >
-            <img src="/images/message.svg" className="contactImage" alt="" loading="lazy"/>
+            <img src="/images/message.svg" className="contactImage" alt="" loading="lazy" />
           </motion.div>
           <div className="right">
             <h1>Email me</h1>
@@ -61,6 +69,9 @@ const Contact = () => {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                onClick={() => {
+                  setShow(true)
+                }}
               >
                 send
               </motion.button>
