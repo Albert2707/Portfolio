@@ -2,7 +2,7 @@ import { FormEvent, useRef, useState } from "react";
 import "./Contact.scss";
 import { motion, useInView } from "framer-motion";
 import Confetti from "react-confetti";
-import { useWindowSize } from 'usehooks-ts'
+import { useWindowSize } from "usehooks-ts";
 
 const Contact = () => {
   const variants = {
@@ -31,7 +31,7 @@ const Contact = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert("Message sent");
-    setShow(true)
+    setShow(true);
   };
   return (
     <div className="contact" ref={ref}>
@@ -52,7 +52,12 @@ const Contact = () => {
               duration: 0.3,
             }}
           >
-            <img src="/images/message.svg" className="contactImage" alt="" loading="lazy" />
+            <img
+              src="/images/message.svg"
+              className="contactImage"
+              alt=""
+              loading="lazy"
+            />
           </motion.div>
           <div className="right">
             <h1>Email me</h1>
@@ -65,6 +70,9 @@ const Contact = () => {
                 id=""
                 cols={30}
                 rows={8}
+                onChange={() => {
+                  console.log("cambiando");
+                }}
               ></textarea>
               <motion.button
                 whileHover={{ scale: 1.1 }}
