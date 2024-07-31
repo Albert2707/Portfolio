@@ -86,11 +86,11 @@ const Projects = () => {
   //line-items
   const y = useTransform(line, [0, 1], [0, 270]);
   const opacity = useTransform(line, [0, 1], [0, 1]);
-  const y1 = useTransform(multasLine, [0, 1], [270, 920]);
+  const y1 = useTransform(multasLine, [0, 1], [270, 820]);
   const opacity1 = useTransform(multasLine, [0, 1], [0, 1]);
-  const y2 = useTransform(fiverrline, [0, 1], [920, 1550]);
+  const y2 = useTransform(fiverrline, [0, 1], [820, 1360]);
   const opacity2 = useTransform(fiverrline, [0, 1], [0, 1]);
-  const y4 = useTransform(energyLine, [0, 1], [1550, 2200]);
+  const y4 = useTransform(energyLine, [0, 1], [1360, 1930]);
   const opacity4 = useTransform(energyLine, [0, 1], [0, 1]);
   return (
     <div className="projectsContainer">
