@@ -5,11 +5,11 @@
   background-color: #222;
   position: relative;
 
-  .pruebas{
+  .pruebas {
     position: fixed;
     left: 0;
     right: 0;
-    top:0;
+    top: 0;
   }
   .container {
     @include container();
@@ -95,7 +95,7 @@
               padding: 10px;
             }
           }
-          button {
+          .btn-contact {
             width: 100%;
             height: 40px;
             font-size: 1rem;
@@ -104,7 +104,8 @@
             color: white;
             border: none;
             border-radius: 6px;
-            background-color: #f43f5e;
+            background-color: $rose;
+            box-shadow: 12px 12px black;
           }
         }
       }

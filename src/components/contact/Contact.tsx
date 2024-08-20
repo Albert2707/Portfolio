@@ -70,11 +70,8 @@ const Contact = () => {
                 id=""
                 cols={30}
                 rows={8}
-                onChange={() => {
-                  console.log("cambiando");
-                }}
               ></textarea>
-              <motion.button
+              <motion.button className="btn-contact"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >

@@ -13,7 +13,8 @@ body {
 * {
   padding: 0;
   margin: 0;
-  scrollbar-width: none;
+  scrollbar-color: $rose orange;
+  scrollbar-width:thin;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }

@@ -6,7 +6,7 @@ const ProgressBar = () => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 150,
-    damping: 30,
+    damping: 50,
     restDelta: 0.001,
   });
   return <motion.div style={{ scaleX }} className="progress"/>;

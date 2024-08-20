@@ -108,6 +108,16 @@ const Skills = () => {
             alt=""
             loading="lazy"
           />
+          <img
+            src="https://www.svgrepo.com/show/373644/graphql.svg"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="https://www.svgrepo.com/show/354200/postgresql.svg"
+            alt=""
+            loading="lazy"
+          />
         </div>
         <div className="logos-slide">
           <img
@@ -211,6 +221,16 @@ const Skills = () => {
           <img src="/icons/Github.svg" alt="" loading="lazy" />
           <img
             src="https://www.svgrepo.com/show/354202/postman-icon.svg"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="https://www.svgrepo.com/show/373644/graphql.svg"
+            alt=""
+            loading="lazy"
+          />
+          <img
+            src="https://www.svgrepo.com/show/354200/postgresql.svg"
             alt=""
             loading="lazy"
           />
