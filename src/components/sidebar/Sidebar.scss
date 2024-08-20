@@ -1,4 +1,5 @@
 @import "../../app.scss";
+
 .sidebar {
   display: none;
   flex-direction: column;
@@ -6,9 +7,11 @@
   justify-content: center;
   background-color: #222;
   color: $rose;
+
   @include mobile {
     display: flex;
   }
+
   .bg {
     z-index: 999;
     position: fixed;
@@ -43,18 +46,28 @@
           font-size: 20px;
         }
       }
+
+      .resumeMobile {
+        background-color: #333;
+        padding: 10px;
+        border-radius: 10px;
+        color: $rose;
+      }
     }
   }
 
   button {
     z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     color: $rose;
     position: fixed;
-    top: 25px;
+    top: 27px;
     left: 25px;
     background-color: transparent;
     border: none;

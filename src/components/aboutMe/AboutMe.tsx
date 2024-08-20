@@ -29,7 +29,7 @@ const AboutMe = () => {
             <motion.a
               href="/resume/Resume.pdf"
               download={true}
-              initial={{ scale: 0, x: -50 , backgroundColor:"rgb(244 63 94)"}}
+              initial={{ scale: 0, x: -50, backgroundColor: "rgb(244 63 94)" }}
               animate={{ scale: 1, x: 0 }}
               transition={{
                 type: "spring",
@@ -37,7 +37,7 @@ const AboutMe = () => {
                 stiffness: 200,
                 duration: 0.3,
               }}
-              whileHover={{ scale: 1.1, backgroundColor: "#f6f6f6", color: "rgb(244 63 94)" }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               className="btnResume"
             >

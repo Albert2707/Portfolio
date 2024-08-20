@@ -41,6 +41,7 @@ const Links = () => {
       <motion.a
         href="/resume/Resume.pdf"
         download={true}
+        className="resumeMobile"
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}

@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="container">
         <div className="logo">
           <a href="#" className="linkDesktop text-[lightgray] font-medium">
-            <img src="/images/command.svg" className="w-9" alt="" />
+            <img src="/icon.png" className="w-9" alt="" />
           </a>
         </div>
 
