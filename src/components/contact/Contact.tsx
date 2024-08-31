@@ -8,12 +8,12 @@ import toast, { Toaster } from "react-hot-toast";
 const Contact = () => {
   const form = useRef<any>(null);
 
-
-  const notify = () =>
-    toast("Message sent", {
-      icon: "✨",
+  const notify = (msg: string, icon: string = "🔥", color: string) =>
+    toast(msg, {
+      icon: icon,
       style: {
-        borderRadius: "10px",
+        borderRadius: "6px",
+        borderLeft: `3px solid ${color}`,
         background: "#333",
         color: "#fff",
       },
@@ -41,22 +41,42 @@ const Contact = () => {
   const ref = useRef(null);
   const { width, height } = useWindowSize();
   const isInView = useInView(ref, { margin: "-50px" });
+  const validateFields = (): boolean => {
+    const elements = form.current.elements;
+    for (let i = 0; i < elements.length - 1; i++) {
+      const element = elements[i];
+      if (element.value) return true;
+    }
+    return false;
+  };
+
+  const clearFields = () => {
+    const elements = form.current.elements;
+    for (let i = 0; i < elements.length - 1; i++) {
+      const element = elements[i];
+      element.value = "";
+    }
+  };
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(form.current);
-    emailjs
-    .sendForm("service_1akkg79", "template_3ydiudp", form.current, {
-      publicKey: "NYM6_6zEXQ9oN94MF",
-    })
-    .then(
-      () => {
-        notify();
-      },
-      () => {
-        toast.error("This didn't work.")
-      }
-    );
-    setShow(true);
+    if (validateFields()) {
+      emailjs
+        .sendForm("service_1akkg79", "template_3ydiudp", form.current, {
+          publicKey: "NYM6_6zEXQ9oN94MF",
+        })
+        .then(
+          () => {
+            notify("Message sent.", "✅", "#32de84");
+            setShow(true);
+            clearFields();
+          },
+          () => {
+            notify("This didn't work.", "🚨", "rgb(244 63 94)");
+          }
+        );
+    } else {
+      notify("Please fill all the fields.", "🙁", "#FFBF00");
+    }
   };
   return (
     <div className="contact" ref={ref}>
