@@ -2,9 +2,22 @@ import { FormEvent, useRef, useState } from "react";
 import "./Contact.scss";
 import { motion, useInView } from "framer-motion";
 import Confetti from "react-confetti";
+import emailjs from "@emailjs/browser";
 import { useWindowSize } from "usehooks-ts";
-
+import toast, { Toaster } from "react-hot-toast";
 const Contact = () => {
+  const form = useRef<any>(null);
+
+
+  const notify = () =>
+    toast("Message sent", {
+      icon: "✨",
+      style: {
+        borderRadius: "10px",
+        background: "#333",
+        color: "#fff",
+      },
+    });
   const variants = {
     inview: {
       y: 0,
@@ -30,11 +43,24 @@ const Contact = () => {
   const isInView = useInView(ref, { margin: "-50px" });
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert("Message sent");
+    console.log(form.current);
+    emailjs
+    .sendForm("service_1akkg79", "template_3ydiudp", form.current, {
+      publicKey: "NYM6_6zEXQ9oN94MF",
+    })
+    .then(
+      () => {
+        notify();
+      },
+      () => {
+        toast.error("This didn't work.")
+      }
+    );
     setShow(true);
   };
   return (
     <div className="contact" ref={ref}>
+      <Toaster />
       <div className="pruebas">
         <Confetti width={width} height={height} recycle={false} run={show} />
       </div>
@@ -61,17 +87,19 @@ const Contact = () => {
           </motion.div>
           <div className="right">
             <h1>Email me</h1>
-            <form action="" className="form" onSubmit={handleSubmit}>
-              <input type="Email" placeholder="Email" />
-              <input type="text" placeholder="Subject" />
+            <form ref={form} action="" className="form" onSubmit={handleSubmit}>
+              <input type="text" placeholder="Name" name="name" />
+              <input type="Email" placeholder="Email" name="email" />
               <textarea
-                name=""
+                name="message"
                 placeholder="Message "
                 id=""
                 cols={30}
                 rows={8}
               ></textarea>
-              <motion.button className="btn-contact"
+              <motion.button
+                value="send"
+                className="btn-contact"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
