@@ -5,6 +5,7 @@ $rose: rgb(244 63 94);
 html {
   scroll-behavior: smooth;
 }
+
 body {
   background-color: #191919;
   scrollbar-width: none;
@@ -13,8 +14,7 @@ body {
 * {
   padding: 0;
   margin: 0;
-  scrollbar-color: $rose transparent;
-  scrollbar-width:thin;
+  scrollbar-width: none;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
@@ -33,21 +33,26 @@ body {
   height: auto;
   background-color: #222;
 }
+
 @mixin container() {
   width: 100%;
 
   @media (min-width: 1537px) {
     max-width: 1366px;
   }
+
   @media (max-width: 1536px) {
     max-width: 1280px;
   }
+
   @media (max-width: 1280px) {
     max-width: 1000px;
   }
+
   @media (max-width: 1024px) {
     max-width: 768px;
   }
+
   @media (max-width: 768px) {
     max-width: 640px;
   }
@@ -64,6 +69,7 @@ body {
     @content;
   }
 }
+
 @mixin laptop {
   @media (max-width: 1280px) {
     @content;
