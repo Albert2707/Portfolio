@@ -11,7 +11,7 @@ const ArrowDown = () => {
       y: 10,
       opacity: 1,
       transition: {
-        duration: 2,
+        duration: 1.5,
         repeat: Infinity,
       },
     },
