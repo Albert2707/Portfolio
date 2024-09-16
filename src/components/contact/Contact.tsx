@@ -1,7 +1,7 @@
 import { FormEvent, useRef, useState } from "react";
 import "./Contact.scss";
+import ConfettiExplosion from "react-confetti-explosion";
 import { motion, useInView } from "framer-motion";
-import Confetti from "react-confetti";
 import emailjs from "@emailjs/browser";
 import { useWindowSize } from "usehooks-ts";
 import toast, { Toaster } from "react-hot-toast";
@@ -39,39 +39,54 @@ const Contact = () => {
   };
   const [show, setShow] = useState<boolean>(false);
   const ref = useRef(null);
-  const { width, height } = useWindowSize();
+  const [loading, setLoading] = useState(false);
   const isInView = useInView(ref, { margin: "-50px" });
+
   const validateFields = (): boolean => {
     const elements = form.current.elements;
-    for (let i = 0; i < elements.length - 1; i++) {
-      const element = elements[i];
-      if (element.value) return true;
+    console.log(elements.length);
+    for (let i = 0; i < elements.length; i++) {
+      console.log(elements[i]);
+      if (
+        elements[i].tagName === "INPUT" ||
+        elements[i].tagName === "TEXTAREA"
+      ) {
+        if (!elements[i].value) return false;
+      }
     }
-    return false;
+    return true;
   };
 
   const clearFields = () => {
     const elements = form.current.elements;
     for (let i = 0; i < elements.length - 1; i++) {
-      const element = elements[i];
-      element.value = "";
+      if (
+        elements[i].tagName === "INPUT" ||
+        elements[i].tagName === "TEXTAREA"
+      ) {
+        elements[i].value = null;
+      }
     }
   };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateFields()) {
+      setLoading(true);
       emailjs
         .sendForm("service_1akkg79", "template_3ydiudp", form.current, {
           publicKey: "NYM6_6zEXQ9oN94MF",
         })
         .then(
           () => {
-            notify("Message sent.", "✅", "#32de84");
-            setShow(true);
+            notify("Message sent.", "🚀", "#32de84");
             clearFields();
+            setShow(true);
+            setLoading(false);
           },
           () => {
             notify("This didn't work.", "🚨", "rgb(244 63 94)");
+            setLoading(false);
           }
         );
     } else {
@@ -81,9 +96,7 @@ const Contact = () => {
   return (
     <div className="contact" ref={ref}>
       <Toaster />
-      <div className="pruebas">
-        <Confetti width={width} height={height} recycle={false} run={show} />
-      </div>
+      <div className="pruebas"></div>
 
       <div className="container">
         <div className="top">
@@ -99,7 +112,7 @@ const Contact = () => {
             }}
           >
             <img
-              src="/images/message.svg"
+              src="/images/man-riding-a-rocket.svg"
               className="contactImage"
               alt=""
               loading="lazy"
@@ -108,6 +121,9 @@ const Contact = () => {
           <div className="right">
             <h1>Email me</h1>
             <form ref={form} action="" className="form" onSubmit={handleSubmit}>
+              {show && (
+                <ConfettiExplosion particleCount={200} duration={3000} />
+              )}
               <input type="text" placeholder="Name" name="name" />
               <input type="Email" placeholder="Email" name="email" />
               <textarea
@@ -117,13 +133,14 @@ const Contact = () => {
                 cols={30}
                 rows={8}
               ></textarea>
+
               <motion.button
                 value="send"
                 className="btn-contact"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                send
+                {loading ? <span>Loading...</span> : "Send"}
               </motion.button>
             </form>
           </div>

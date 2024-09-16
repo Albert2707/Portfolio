@@ -67,11 +67,14 @@
         .btnResume {
           background-color: rgb(244 63 94);
           padding: 8px 16px;
-          border-radius: 8px;
+          border-radius: 10px;
           font-size: 1rem;
           color: white;
           display: block;
           text-decoration: none;
+          height:45px;
+          display: flex;
+          align-items: center;
           margin-top: 10px;
           box-shadow: -8px 8px #252525;
           @include mobile {

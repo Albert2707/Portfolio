@@ -53,7 +53,7 @@ const AboutMe = () => {
         >
           <img
             className="image"
-            src="/images/undraw_cloud_hosting_7xb1.svg"
+            src="/images/home-office.svg"
             alt=""
             loading="lazy"
           />

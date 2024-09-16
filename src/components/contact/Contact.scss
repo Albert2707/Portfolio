@@ -74,12 +74,17 @@
 
         .form {
           display: flex;
+          position: relative;
           flex-direction: column;
+          align-items: center;
           width: 100%;
           gap: 8px;
-
+          .confetti-explosion-container-0-2-418 {
+            position: absolute;
+          }
           input,
           textarea {
+            width: 100%;
             padding: 8px;
             border-radius: 6px;
             caret-color: #f43f5e;
