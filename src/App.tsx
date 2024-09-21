@@ -1,5 +1,6 @@
 import "./App.scss";
 import {lazy} from "react";
+const ArrowUp = lazy(() => import("./components/arrowUp/ArrowUp"));
 const AboutMe = lazy(() => import("./components/aboutMe/AboutMe"));
 const ArrowDown = lazy(() => import("./components/arrowDown/ArrowDown"));
 const Contact = lazy(() => import("./components/contact/Contact"));
@@ -15,6 +16,7 @@ function App() {
       <ProgressBar />
       <Navbar />
       <Sidebar />
+      <ArrowUp/>
       <section id="aboutMe" className="section">
         <AboutMe />
         <ArrowDown />

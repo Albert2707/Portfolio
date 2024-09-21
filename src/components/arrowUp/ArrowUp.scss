@@ -1,0 +1,37 @@
+@import "../../app.scss";
+.downUp {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    border:none;
+    cursor:pointer;
+    justify-content: center;
+    position: fixed;
+    background-color: #333;
+    bottom: 30px;
+    right: 30px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  
+    span {
+      color: rgb(244 63 94);
+      svg {
+        width: 32px;
+        height: 32px;
+
+        @include mobile{
+            width: 24px;
+            height: 24px;
+        }
+      }
+    }
+    @include mobile{
+        height: 50px;
+        width: 50px;
+    }
+  }
