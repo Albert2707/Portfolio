@@ -45,25 +45,25 @@ const Projects = () => {
     offset: ["0.3 1", "1 1"],
   });
 
-  const { scrollYProgress: line } = useScroll({
-    target: biblosRef,
-    offset: ["0 1", "1 1"],
-  });
+  // const { scrollYProgress: line } = useScroll({
+  //   target: biblosRef,
+  //   offset: ["0 1", "1 1"],
+  // });
 
-  const { scrollYProgress: multasLine } = useScroll({
-    target: multasRef,
-    offset: ["0 1", "1 1"],
-  });
+  // const { scrollYProgress: multasLine } = useScroll({
+  //   target: multasRef,
+  //   offset: ["0 1", "1 1"],
+  // });
 
-  const { scrollYProgress: fiverrline } = useScroll({
-    target: fiverrRef,
-    offset: ["0 1", "1 1"],
-  });
+  // const { scrollYProgress: fiverrline } = useScroll({
+  //   target: fiverrRef,
+  //   offset: ["0 1", "1 1"],
+  // });
 
-  const { scrollYProgress: energyLine } = useScroll({
-    target: energyRef,
-    offset: ["0 1", "1 1"],
-  });
+  // const { scrollYProgress: energyLine } = useScroll({
+  //   target: energyRef,
+  //   offset: ["0 1", "1 1"],
+  // });
 
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
@@ -78,24 +78,23 @@ const Projects = () => {
   const opacityProgress4 = useTransform(energy, [0, 1], [0.4, 1]);
 
   const { scrollYProgress: verticalLine } = useScroll({ target: lineRef, offset: ["0 1", "1.1 1"] });
-  const scaleY = useSpring(verticalLine, {
-    stiffness: 200,
-    damping: 30,
-    restDelta: 0.001,
-  });
+  // const scaleY = useSpring(verticalLine, {
+  //   stiffness: 200,
+  //   damping: 30,
+  //   restDelta: 0.001,
+  // });
   //line-items
-  const y = useTransform(line, [0, 1], [0, 270]);
-  const opacity = useTransform(line, [0, 1], [0, 1]);
-  const y1 = useTransform(multasLine, [0, 1], [270, 820]);
-  const opacity1 = useTransform(multasLine, [0, 1], [0, 1]);
-  const y2 = useTransform(fiverrline, [0, 1], [820, 1360]);
-  const opacity2 = useTransform(fiverrline, [0, 1], [0, 1]);
-  const y4 = useTransform(energyLine, [0, 1], [1360, 1930]);
-  const opacity4 = useTransform(energyLine, [0, 1], [0, 1]);
+  // const y = useTransform(line, [0, 1], [0, 270]);
+  // const opacity = useTransform(line, [0, 1], [0, 1]);
+  // const y1 = useTransform(multasLine, [0, 1], [270, 820]);
+  // const opacity1 = useTransform(multasLine, [0, 1], [0, 1]);
+  // const y2 = useTransform(fiverrline, [0, 1], [820, 1360]);
+  // const opacity2 = useTransform(fiverrline, [0, 1], [0, 1]);
+  // const y4 = useTransform(energyLine, [0, 1], [1360, 1930]);
+  // const opacity4 = useTransform(energyLine, [0, 1], [0, 1]);
   return (
     <div className="projectsContainer">
-      <div className="line-wrapper">
-        <div className="line"></div>
+      {/* <div className="line-wrapper">
         <motion.div
           className="line2"
           ref={lineRef}
@@ -130,7 +129,7 @@ const Projects = () => {
         >
           CleanEnergy
         </motion.div>
-      </div>
+      </div> */}
       <div className="wrapper">
         <motion.div
           className="item"

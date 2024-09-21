@@ -23,18 +23,18 @@
       align-items: flex-start;
       justify-content: center;
       flex: 1;
-      gap: 8px;
+      gap: 0px;
 
       @include mobile {
-        flex: initial;
-        align-items: center;
+        flex: unset;
+align-items: center;
       }
       .career {
         color: rgb(244 63 94);
         text-align: start;
-        font-size: 2.5rem;
-        line-height: 40px;
-        font-weight: 500;
+        font-size: 4rem;
+        line-height:1.0625;
+        font-weight: bold !important;
         white-space: normal;
         @include tablet {
           font-size: 2rem;
@@ -43,43 +43,50 @@
 
         @include mobile {
           text-align: start;
-          font-size: 1.8rem;
+          font-size: 2.2rem;
           line-height: 2rem;
           transform:none;
         }
       }
       .summary {
         width: 550px;
-        margin: 10px 0;
-        font-size: 1.2rem;
-        text-align: start;
+        margin: 15px 0px 10px 0px;
+        font-size: 1.25rem;
+        line-height: 1.556;
+        text-wrap: pretty;
+        font-weight: 0 !important;
         color: lightgray;
 
         @include tablet {
           width: 90%;
-          font-size: 1.2rem;
         }
         @include mobile {
-          width: 100%;
-          text-align: center;
+          width: 80%;
+          margin:10px 0;
           transform:none;
-          font-size: 1rem;
+          font-size: 1.125rem;
         }
       }
       .resume {
         .btnResume {
           background-color: rgb(244 63 94);
-          padding: 8px 16px;
-          border-radius: 10px;
-          font-size: 1rem;
+          // padding: 8px 16px;
+          border-radius: .25rem;
+          padding: 0 2rem;
+          font-size: 1.2rem;
+          line-height: 1.556;
+          font-weight: 600;
           color: white;
-          display: block;
+          width: 10rem;
+          display: flex;
           text-decoration: none;
-          height: 45px;
+          height: 4rem;
+          text-align: center;
           display: flex;
           align-items: center;
-          margin-top: 10px;
-          box-shadow: -8px 8px #252525;
+          justify-content: center;
+          margin-top: 15px;
+          // box-shadow: -8px 8px #252525;
           @include mobile {
             display: none;
           }
@@ -103,31 +110,13 @@
         transform:none;
       }
       .image {
-        width: 500px;
+        width: 600px;
 
         @include tablet {
           width: 100%;
         }
         @include mobile {
           width: 350px;
-        }
-      }
-      &::before {
-        content: "";
-        position: absolute;
-        width: 100vw;
-        height: 70vh;
-        left: 0;
-        margin: 0 auto;
-        z-index: -1;
-        border-radius: 30px;
-        background-color: #222;
-
-        @include tablet {
-          display: none;
-        }
-        @include mobile {
-          display: none;
         }
       }
     }

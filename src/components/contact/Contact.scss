@@ -3,37 +3,32 @@
 .contact {
   height: 100%;
   background-color: #222;
+  display: flex;
+  justify-content: center;
   position: relative;
 
-  .pruebas {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-  }
   .container {
     @include container();
     height: 100%;
     display: flex;
-    margin: auto;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin: 0 auto;
 
     @include mobile {
       align-items: center;
     }
+
     .top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      gap: 40px;
 
       @include mobile {
         justify-content: center;
       }
+
       .left {
         flex: 1;
         display: flex;
@@ -42,9 +37,11 @@
         @include mobile {
           display: none;
         }
+
         .contactImage {
-          width: 500px;
+          width: 600px;
           object-fit: cover;
+
           @include mobile {
             width: 350px;
           }
@@ -54,6 +51,7 @@
           }
         }
       }
+
       .right {
         flex: 1;
         display: flex;
@@ -67,9 +65,13 @@
         }
 
         h1 {
-          font-size: 2rem;
+          font-size: 4rem;
+          line-height:1.0625;
           color: lightgray;
           align-self: flex-start;
+          @include mobile{
+            font-size: 2.25rem;
+          }
         }
 
         .form {
@@ -79,13 +81,38 @@
           align-items: center;
           width: 100%;
           gap: 8px;
+
           .confetti-explosion-container-0-2-418 {
             position: absolute;
           }
-          input,
-          textarea {
+
+          input {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
+            height: 4rem;
+            border-radius: 6px;
+            caret-color: #f43f5e;
+            font-size: 1rem;
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            background-color: transparent;
+            border: 1px solid #444;
+            color: lightgray;
+
+            &::placeholder {
+              color: gray;
+            }
+
+            @include mobile {
+              padding: 15px;
+              height: 3.5em;
+            }
+          }
+          textarea{
+            font-size: 1rem;
+            width: 100%;
+            padding: 10px;
+            resize: none;
             border-radius: 6px;
             caret-color: #f43f5e;
             outline: 2px solid transparent;
@@ -93,28 +120,36 @@
             background-color: transparent;
             border: 1px solid #444;
             color: lightgray;
+
             &::placeholder {
               color: gray;
             }
+
             @include mobile {
-              padding: 10px;
+              padding: 15px;
             }
           }
+
           .btn-contact {
             width: 100%;
-            height: 40px;
-            font-size: 1rem;
-            padding: 8px;
-            font-weight: 500;
+            height: 4rem;
+            padding: 0 2rem;
+            font-size: 1.2rem;
+            line-height: 1.556;
+            font-weight: 600;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: .25rem;
             background-color: $rose;
             box-shadow: 12px 12px black;
+            @include mobile{
+              height: 3.5rem;
+            }
           }
         }
       }
     }
+
     .bottom {
       display: flex;
       flex-direction: column;
@@ -137,11 +172,15 @@
           width: 100%;
           background-color: #444;
         }
+
         .middle {
-          font-size: 18px;
+          font-size: 1rem;
           line-height: 28px;
           font-weight: 500;
           color: gray;
+          @include mobile{
+            font-size: 1.125rem;
+          }
         }
       }
 
@@ -155,6 +194,7 @@
 
           a {
             text-decoration: none;
+
             svg {
               width: 32px;
               height: 32px;

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import "./Navbar.scss";
-import Sidebar from "../sidebar/Sidebar";
 const Navbar = () => {
   const variants = {
     initial: { scale: 0, x: -50 },

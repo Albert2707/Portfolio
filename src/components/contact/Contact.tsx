@@ -3,7 +3,6 @@ import "./Contact.scss";
 import ConfettiExplosion from "react-confetti-explosion";
 import { motion, useInView } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import { useWindowSize } from "usehooks-ts";
 import toast, { Toaster } from "react-hot-toast";
 const Contact = () => {
   const form = useRef<any>(null);
@@ -96,8 +95,6 @@ const Contact = () => {
   return (
     <div className="contact" ref={ref}>
       <Toaster />
-      <div className="pruebas"></div>
-
       <div className="container">
         <div className="top">
           <motion.div
@@ -130,6 +127,7 @@ const Contact = () => {
                 name="message"
                 placeholder="Message "
                 id=""
+
                 cols={30}
                 rows={8}
               ></textarea>

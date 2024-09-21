@@ -1,12 +1,13 @@
 import "./App.scss";
-import AboutMe from "./components/aboutMe/AboutMe";
-import ArrowDown from "./components/arrowDown/ArrowDown";
-import Contact from "./components/contact/Contact";
-import Navbar from "./components/navbar/Navbar";
-import ProgressBar from "./components/progressBar/ProgressBar";
-import Projects from "./components/projects/Projects";
-import Sidebar from "./components/sidebar/Sidebar";
-import Skills from "./components/skills/Skills";
+import {lazy} from "react";
+const AboutMe = lazy(() => import("./components/aboutMe/AboutMe"));
+const ArrowDown = lazy(() => import("./components/arrowDown/ArrowDown"));
+const Contact = lazy(() => import("./components/contact/Contact"));
+const Navbar = lazy(() => import("./components/navbar/Navbar"));
+const ProgressBar = lazy(() => import("./components/progressBar/ProgressBar"));
+const Projects = lazy(() => import("./components/projects/Projects"));
+const Sidebar = lazy(() => import("./components/sidebar/Sidebar"));
+const Skills = lazy(() => import("./components/skills/Skills"));
 
 function App() {
   return (
