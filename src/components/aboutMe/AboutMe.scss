@@ -1,8 +1,10 @@
 @import "../../App.scss";
+
 .about {
   height: 90%;
   display: flex;
   justify-content: center;
+
   .container {
     @include container();
     display: flex;
@@ -17,6 +19,7 @@
       padding: 60px 20px 0 20px;
       gap: 20px;
     }
+
     .left {
       display: flex;
       flex-direction: column;
@@ -27,15 +30,17 @@
 
       @include mobile {
         flex: unset;
-align-items: center;
+        align-items: center;
       }
+
       .career {
         color: rgb(244 63 94);
         text-align: start;
         font-size: 4rem;
-        line-height:1.0625;
+        line-height: 1.0625;
         font-weight: bold !important;
         white-space: normal;
+
         @include tablet {
           font-size: 2rem;
           line-height: 2rem;
@@ -45,9 +50,10 @@ align-items: center;
           text-align: start;
           font-size: 2.2rem;
           line-height: 2rem;
-          transform:none;
+          transform: none;
         }
       }
+
       .summary {
         width: 550px;
         margin: 15px 0px 10px 0px;
@@ -60,24 +66,28 @@ align-items: center;
         @include tablet {
           width: 90%;
         }
+
         @include mobile {
           width: 80%;
-          margin:10px 0;
-          transform:none;
+          margin: 10px 0;
+          transform: none;
           font-size: 1.125rem;
         }
       }
+
       .resume {
-        .btnResume {
-          background-color: rgb(244 63 94);
-          // padding: 8px 16px;
+        display: flex;
+        gap: 10px;
+
+        .btnContact {
           border-radius: .25rem;
           padding: 0 2rem;
+          border: 2px solid white;
           font-size: 1.2rem;
           line-height: 1.556;
           font-weight: 600;
           color: white;
-          width: 10rem;
+          width: 12rem;
           display: flex;
           text-decoration: none;
           height: 4rem;
@@ -86,13 +96,47 @@ align-items: center;
           align-items: center;
           justify-content: center;
           margin-top: 15px;
-          // box-shadow: -8px 8px #252525;
+          transition: all 0.2s linear;
+
+          &:hover {
+            border-color: $rose;
+          }
+
+          @include mobile {
+            display: none;
+          }
+        }
+
+        .btnResume {
+          background-color: rgb(244 63 94);
+          border-radius: .25rem;
+          padding: 0 2rem;
+          font-size: 1.2rem;
+          line-height: 1.556;
+          font-weight: 600;
+          color: white;
+          width: 12rem;
+          display: flex;
+          text-decoration: none;
+          height: 4rem;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 15px;
+          transition: all 0.2s linear;
+
+          &:hover {
+            background-color: #be123c;
+          }
+
           @include mobile {
             display: none;
           }
         }
       }
     }
+
     .rigth {
       display: flex;
       align-items: center;
@@ -105,16 +149,19 @@ align-items: center;
         flex: none;
         width: 60%;
       }
+
       @include mobile {
         width: 100%;
-        transform:none;
+        transform: none;
       }
+
       .image {
         width: 600px;
 
         @include tablet {
           width: 100%;
         }
+
         @include mobile {
           width: 350px;
         }

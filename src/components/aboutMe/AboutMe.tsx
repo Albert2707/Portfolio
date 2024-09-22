@@ -27,17 +27,31 @@ const AboutMe = () => {
           </motion.p>
           <div className="resume">
             <motion.a
-              href="/resume/Resume.pdf"
-              download={true}
-              initial={{ scale: 0, x: -50, backgroundColor: "rgb(244 63 94)" }}
-              animate={{ scale: 1, x: 0 }}
+              href="#contact"
+              initial={{ x: -50 }}
+              animate={{ x: 0 }}
               transition={{
                 type: "spring",
-                damping: 15,
+                damping: 30,
                 stiffness: 200,
                 duration: 0.3,
               }}
-              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="btnContact"
+            >
+              Contract me
+            </motion.a>
+            <motion.a
+              href="/resume/Resume.pdf"
+              download={true}
+              initial={{ x: 50}}
+              animate={{ x: 0 }}
+              transition={{
+                type: "spring",
+                damping: 30,
+                stiffness: 200,
+                duration: 0.3,
+              }}
               whileTap={{ scale: 0.9 }}
               className="btnResume"
             >
