@@ -28,8 +28,8 @@ const Navbar = () => {
     <div className="navbar">
       <div className="container">
         <div className="logo">
-          <a href="#" className="linkDesktop text-[lightgray] font-medium">
-            <img src="/icon.png" className="w-9" alt="" />
+          <a href="#" className="linkDesktop text-[lightgray] font-medium" aria-label="Navigate to homepage">
+            <img src="/icon.webp" className="w-9" alt="Navigate to homepage" />
           </a>
         </div>
 
@@ -40,34 +40,46 @@ const Navbar = () => {
             initial="initial"
             animate="animate"
           >
-            <motion.a
-              href="#aboutMe"
-              variants={variants}
-              whileHover={linksVariants}
-            >
-              About me
-            </motion.a>
-            <motion.a
-              href="#projects"
-              variants={variants}
-              whileHover={linksVariants}
-            >
-              Projects
-            </motion.a>
-            <motion.a
-              href="#skills"
-              variants={variants}
-              whileHover={linksVariants}
-            >
-              Skills
-            </motion.a>
-            <motion.a
-              href="#contact"
-              variants={variants}
-              whileHover={linksVariants}
-            >
-              Contact
-            </motion.a>
+            <li>
+
+              <motion.a
+                href="#aboutMe"
+                variants={variants}
+                whileHover={linksVariants}
+              >
+                About me
+              </motion.a>
+            </li>
+            <li>
+
+              <motion.a
+                href="#projects"
+                variants={variants}
+                whileHover={linksVariants}
+              >
+                Projects
+              </motion.a>
+            </li>
+            <li>
+
+              <motion.a
+                href="#skills"
+                variants={variants}
+                whileHover={linksVariants}
+              >
+                Skills
+              </motion.a>
+            </li>
+            <li>
+
+              <motion.a
+                href="#contact"
+                variants={variants}
+                whileHover={linksVariants}
+              >
+                Contact
+              </motion.a>
+            </li>
           </motion.ul>
           <motion.div
             className="socials"
@@ -81,6 +93,7 @@ const Navbar = () => {
               rel="noreferrer"
               className="socialLink"
               initial={{ y: 0 }}
+              arial-label="linkedin"
               animate={{ y: 0 }}
               whileHover={{
                 backgroundColor: "rgb(244 63 94)",
@@ -114,6 +127,7 @@ const Navbar = () => {
               className="socialLink"
               initial={{ y: 0 }}
               animate={{ y: 0 }}
+              arial-label="github"
               whileHover={{
                 backgroundColor: "rgb(244 63 94)",
                 y: -3,

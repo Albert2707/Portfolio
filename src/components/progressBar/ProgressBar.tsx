@@ -1,5 +1,4 @@
 import { useScroll, useSpring, motion } from "framer-motion";
-import { useRef } from "react";
 import "./ProgressBar.scss";
 
 const ProgressBar = () => {

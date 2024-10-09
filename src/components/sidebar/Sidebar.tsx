@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { lazy, useState } from "react";
 import "./Sidebar.scss";
 import {motion} from "framer-motion"
-import Links from "./links/Links";
+const Links = lazy(() => import("./links/Links"));
 import ToggleButton from "./toggleButton/ToggleButton";
 const variants = {
   open: {

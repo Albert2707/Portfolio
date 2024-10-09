@@ -1,4 +1,4 @@
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useCallback, useRef, useState } from "react";
 import "./Contact.scss";
 import ConfettiExplosion from "react-confetti-explosion";
 import { motion, useInView } from "framer-motion";
@@ -41,7 +41,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const isInView = useInView(ref, { margin: "-50px" });
 
-  const validateFields = (): boolean => {
+  const validateFields = useCallback((): boolean => {
     const elements = form.current.elements;
     console.log(elements.length);
     for (let i = 0; i < elements.length; i++) {
@@ -54,7 +54,7 @@ const Contact = () => {
       }
     }
     return true;
-  };
+  },[]);
 
   const clearFields = () => {
     const elements = form.current.elements;
@@ -68,7 +68,7 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateFields()) {
       setLoading(true);
@@ -91,7 +91,7 @@ const Contact = () => {
     } else {
       notify("Please fill all the fields.", "🙁", "#FFBF00");
     }
-  };
+  },[]);
   return (
     <div className="contact" ref={ref}>
       <Toaster />

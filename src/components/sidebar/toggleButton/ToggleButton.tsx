@@ -6,7 +6,7 @@ interface Props {
 
 const ToggleButton: React.FC<Props> = ({ setOpen }) => {
   return (
-    <button onClick={() => setOpen((prev) => !prev)}>
+    <button onClick={() => setOpen((prev) => !prev)} arial-label="sidebar">
       <svg width="23" height="23" viewBox="0 0 23 23">
         <motion.path
           strokeWidth="3"

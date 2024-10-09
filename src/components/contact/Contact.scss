@@ -2,11 +2,10 @@
 
 .contact {
   height: 100%;
-  background-color: #222;
-  display: flex;
+  background: rgb(34, 34, 34);
+    display: flex;
   justify-content: center;
   position: relative;
-
   .container {
     @include container();
     height: 100%;
@@ -14,7 +13,9 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
+    @include tablet {
+      align-items: center;
+    }
     @include mobile {
       align-items: center;
     }
@@ -24,7 +25,9 @@
       align-items: center;
       justify-content: space-between;
       width: 100%;
-
+      @include tablet {
+        justify-content: center;
+      }
       @include mobile {
         justify-content: center;
       }
@@ -34,6 +37,9 @@
         display: flex;
         align-items: center;
 
+        @include tablet {
+          display: none;
+        }
         @include mobile {
           display: none;
         }

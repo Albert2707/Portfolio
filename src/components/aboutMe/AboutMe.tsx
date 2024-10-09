@@ -34,7 +34,7 @@ const AboutMe = () => {
                 type: "spring",
                 damping: 30,
                 stiffness: 200,
-                duration: 0.3,
+                duration: 0.1,
               }}
               whileTap={{ scale: 0.9 }}
               className="btnContact"
@@ -50,7 +50,7 @@ const AboutMe = () => {
                 type: "spring",
                 damping: 30,
                 stiffness: 200,
-                duration: 0.3,
+                duration: 0.1,
               }}
               whileTap={{ scale: 0.9 }}
               className="btnResume"
@@ -62,14 +62,13 @@ const AboutMe = () => {
         <motion.div
           initial={{ y: -100 }}
           animate={{ y: 0 }}
-          transition={{ duration: 0.3 }}
+          // transition={{ duration: 0.1 }}
           className="rigth"
         >
           <img
             className="image"
             src="/images/home-office.svg"
             alt=""
-            loading="lazy"
           />
         </motion.div>
       </motion.div>

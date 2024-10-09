@@ -1,5 +1,5 @@
 import "./App.scss";
-import {lazy} from "react";
+import { lazy, useEffect } from "react";
 const ArrowUp = lazy(() => import("./components/arrowUp/ArrowUp"));
 const AboutMe = lazy(() => import("./components/aboutMe/AboutMe"));
 const ArrowDown = lazy(() => import("./components/arrowDown/ArrowDown"));
@@ -11,12 +11,21 @@ const Sidebar = lazy(() => import("./components/sidebar/Sidebar"));
 const Skills = lazy(() => import("./components/skills/Skills"));
 
 function App() {
+
+  useEffect(() => {
+    // cada vez qwue cargue la web
+    // se desplaza al inicio
+    const { hash } = window.location;
+    if (hash)  history.replaceState(null, "", window.location.pathname);
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div>
       <ProgressBar />
       <Navbar />
       <Sidebar />
-      <ArrowUp/>
+      <ArrowUp />
       <section id="aboutMe" className="section">
         <AboutMe />
         <ArrowDown />

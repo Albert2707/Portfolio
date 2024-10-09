@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import "./Projects.scss";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 const Projects = () => {
   const biblosRef = useRef<HTMLImageElement>(null);
   const multasRef = useRef<HTMLImageElement>(null);
@@ -139,7 +139,7 @@ const Projects = () => {
           ref={biblosRef}
           style={{ scale: scaleProgress, opacity: opacityProgress }}
         >
-          <img src="/images/biblos.png" loading="lazy" />
+          <img src="/images/biblos.webp" alt="biblos" loading="lazy" />
           <motion.div variants={infoMotion} className="hover-info">
             <motion.button
               variants={infoMotion}
@@ -172,7 +172,7 @@ const Projects = () => {
           whileHover="hover"
           animate="rest"
         >
-          <img src="/images/multas.png" loading="lazy" />
+          <img src="/images/multas.webp" alt="multas" loading="lazy" />
           <motion.div variants={infoMotion} className="hover-info">
             <motion.button
               variants={infoMotion}
@@ -205,7 +205,7 @@ const Projects = () => {
           style={{ scale: scaleProgress2, opacity: opacityProgress2 }}
           ref={fiverrRef}
         >
-          <img src="/images/fiverrClone.png" loading="lazy" />
+          <img src="/images/fiverrClone.webp" alt="fiver clone" loading="lazy" />
           <motion.div variants={infoMotion} className="hover-info">
             <motion.button
               variants={infoMotion}
@@ -238,7 +238,7 @@ const Projects = () => {
           style={{ scale: scaleProgress4, opacity: opacityProgress4 }}
           ref={energyRef}
         >
-          <img src="/images/energy.png" alt="Social" loading="lazy" />
+          <img src="/images/energy.webp" alt="Social" loading="lazy" />
           <motion.div variants={infoMotion} className="hover-info">
             <motion.a
               variants={infoMotion}

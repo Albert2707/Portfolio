@@ -31,6 +31,7 @@ const Links = () => {
         <motion.a
           href={`#${item}`}
           key={item}
+          arial-label={`Go to ${item}`}
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -41,6 +42,7 @@ const Links = () => {
       <motion.a
         href="/resume/Resume.pdf"
         download={true}
+        arial-label="Download Resume"
         className="resumeMobile"
         variants={itemVariants}
         whileHover={{ scale: 1.1 }}
