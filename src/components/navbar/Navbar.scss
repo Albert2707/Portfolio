@@ -9,15 +9,16 @@
   backdrop-filter: blur(64px);
   background-color: rgb(25 25 25 / 0.7);
 
-  @include mobile {
-    display: none;
-  }
   .container {
     margin: 0 auto;
     display: flex;
     height: 100%;
     align-items: center;
     justify-content: space-between;
+
+    & {
+      @include container(); // Envolver en & {}
+    }
 
     .logo {
       a img {
@@ -28,30 +29,27 @@
     .links {
       align-items: center;
       display: flex;
-      font-size:1rem;
-      font-weight:600;
+      font-size: 1rem;
+      font-weight: 600;
       line-height: 1.5;
       gap: 8px;
-
-      @include mobile {
-        display: none;
-      }
 
       ul {
         display: flex;
         gap: 20px;
         list-style-type: none;
 
-
         a {
           text-decoration: none;
           color: lightgray;
         }
       }
+
       .socials {
         display: flex;
         gap: 8px;
         color: lightgray;
+
         .socialLink {
           color: lightgray;
           background-color: #333;
@@ -60,12 +58,20 @@
           text-decoration: none;
           display: flex;
           align-items: center;
+
           svg {
             color: lightgray;
           }
         }
       }
     }
-    @include container();
+  }
+
+  @include mobile {
+    display: none;
+
+    .links {
+      display: none;
+    }
   }
 }
