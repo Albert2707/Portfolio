@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "sass": "^1.69.5",
+    "swiper": "^11.2.2",
     "usehooks-ts": "^3.1.0"
   },
   "devDependencies": {
