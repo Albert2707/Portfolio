@@ -1,12 +1,13 @@
-import { FormEvent, useCallback, useRef, useState } from "react";
+import { FormEvent, useCallback, useMemo, useRef, useState } from "react";
 import "./Contact.scss";
 import ConfettiExplosion from "react-confetti-explosion";
 import { motion, useInView } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import toast, { Toaster } from "react-hot-toast";
+
+
 const Contact = () => {
   const form = useRef<any>(null);
-
   const notify = (msg: string, icon: string = "🔥", color: string) =>
     toast(msg, {
       icon: icon,
@@ -36,25 +37,27 @@ const Contact = () => {
       opacity: 0,
     },
   };
+  const emojis = useMemo(() => ['😥', '🥺', '😖', '🥲'], []);
+  const randomEmoji = () => Math.floor(Math.random() * emojis.length)
   const [show, setShow] = useState<boolean>(false);
   const ref = useRef(null);
   const [loading, setLoading] = useState(false);
   const isInView = useInView(ref, { margin: "-50px" });
 
-  const validateFields = useCallback((): boolean => {
+  const validateFields = useCallback((): { valid: boolean, error?: string } => {
     const elements = form.current.elements;
-    console.log(elements.length);
     for (let i = 0; i < elements.length; i++) {
-      console.log(elements[i]);
       if (
         elements[i].tagName === "INPUT" ||
         elements[i].tagName === "TEXTAREA"
       ) {
-        if (!elements[i].value) return false;
+        if (!elements[i].value) {
+          return { valid: false, error: elements[i].name + " is required" };
+        }
       }
     }
-    return true;
-  },[]);
+    return { valid: false };
+  }, []);
 
   const clearFields = () => {
     const elements = form.current.elements;
@@ -70,7 +73,8 @@ const Contact = () => {
 
   const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (validateFields()) {
+    const { valid, error } = validateFields();
+    if (valid) {
       setLoading(true);
       emailjs
         .sendForm("service_1akkg79", "template_3ydiudp", form.current, {
@@ -89,9 +93,9 @@ const Contact = () => {
           }
         );
     } else {
-      notify("Please fill all the fields.", "🙁", "#FFBF00");
+      notify(error!, emojis[randomEmoji()], "#FFBF00");
     }
-  },[]);
+  }, []);
   return (
     <div className="contact" ref={ref}>
       <Toaster />
@@ -121,17 +125,24 @@ const Contact = () => {
               {show && (
                 <ConfettiExplosion particleCount={200} duration={3000} />
               )}
-              <input type="text" placeholder="Name" name="name" />
-              <input type="Email" placeholder="Email" name="email" />
-              <textarea
-                name="message"
-                placeholder="Message "
-                id=""
-
-                cols={30}
-                rows={8}
-              ></textarea>
-
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input id="name" type="text" placeholder="Name" name="Name" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input type="Email" id="email" placeholder="Email" name="Email" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="msg">Message</label>
+                <textarea
+                  id="msg"
+                  name="Message"
+                  placeholder="Message "
+                  cols={30}
+                  rows={8}
+                />
+              </div>
               <motion.button
                 value="send"
                 className="btn-contact"

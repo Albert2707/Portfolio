@@ -3,9 +3,10 @@
 .contact {
   height: 100%;
   background: rgb(34, 34, 34);
-    display: flex;
+  display: flex;
   justify-content: center;
   position: relative;
+
   .container {
     @include container();
     height: 100%;
@@ -13,9 +14,11 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+
     @include tablet {
       align-items: center;
     }
+
     @include mobile {
       align-items: center;
     }
@@ -25,9 +28,11 @@
       align-items: center;
       justify-content: space-between;
       width: 100%;
+
       @include tablet {
         justify-content: center;
       }
+
       @include mobile {
         justify-content: center;
       }
@@ -40,6 +45,7 @@
         @include tablet {
           display: none;
         }
+
         @include mobile {
           display: none;
         }
@@ -72,10 +78,11 @@
 
         h1 {
           font-size: 4rem;
-          line-height:1.0625;
+          line-height: 1.0625;
           color: lightgray;
           align-self: flex-start;
-          @include mobile{
+
+          @include mobile {
             font-size: 2.25rem;
           }
         }
@@ -92,29 +99,43 @@
             position: absolute;
           }
 
-          input {
-            width: 100%;
-            padding: 10px;
-            height: 4rem;
-            border-radius: 6px;
-            caret-color: #f43f5e;
-            font-size: 1rem;
-            outline: 2px solid transparent;
-            outline-offset: 2px;
-            background-color: transparent;
-            border: 1px solid #444;
+          .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
             color: lightgray;
+            font-size: 1.105rem;
+            width: 100%;
+&:nth-child(2),
+&:nth-child(3){
+  margin-top :5px ;
+}
+            input {
+              width: 100%;
+              padding: 10px;
+              height: 4rem;
+              border-radius: 6px;
+              caret-color: #f43f5e;
+              font-size: 1rem;
+              outline: 2px solid transparent;
+              outline-offset: 2px;
+              background-color: transparent;
+              border: 1px solid #444;
+              color: lightgray;
 
-            &::placeholder {
-              color: gray;
-            }
+              &::placeholder {
+                color: gray;
+              }
 
-            @include mobile {
-              padding: 15px;
-              height: 3.5em;
+              @include mobile {
+                padding: 15px;
+                height: 3.5em;
+              }
             }
           }
-          textarea{
+
+          textarea {
             font-size: 1rem;
             width: 100%;
             padding: 10px;
@@ -148,7 +169,8 @@
             border-radius: .25rem;
             background-color: $rose;
             box-shadow: 12px 12px black;
-            @include mobile{
+
+            @include mobile {
               height: 3.5rem;
             }
           }
@@ -184,7 +206,8 @@
           line-height: 28px;
           font-weight: 500;
           color: gray;
-          @include mobile{
+
+          @include mobile {
             font-size: 1.125rem;
           }
         }
