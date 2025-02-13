@@ -1,23 +1,16 @@
 @import "../../App.scss";
+
 .skills {
   background-color: #191919;
 
   .container {
-    @include container();
-    height: 100%;
-    width: 100%;
-    display: flex;
-    padding: 60px 0;
-    align-items: center;
+    height: 200px; // Ajusta la altura según sea necesario
     overflow: hidden;
-    white-space: nowrap;
-    margin: 0 auto;
+    display: flex;
+    align-items: center; // Centra verticalmente los hijos
     position: relative;
-    @media (min-width: 769px) {
-      &:hover .logos-slide {
-        animation-play-state: paused;
-      }
-    }
+    margin: 0 auto;
+    @include container();
 
     &::before,
     &::after {
@@ -27,12 +20,7 @@
       height: 100%;
       z-index: 2;
     }
-    @include mobile {
-      &::before,
-      &::after {
-        display: none;
-      }
-    }
+
     &::before {
       content: "";
       left: 0;
@@ -45,29 +33,56 @@
       background: linear-gradient(to right, rgba(255, 255, 255, 0), #191919);
     }
 
-    @keyframes slide {
-      from {
-        transform: translateX(-100%);
-      }
-      to {
-        transform: translateX(0);
-      }
+    .logos-slide,
+    .logos-slide-copy {
+      height: 100%;
+      left: 100%;
+      top: 50%; // Asegura el centrado vertical
+      transform: translateY(-50%); // Compensa el 50% del alto para centrar
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
     }
 
     .logos-slide {
-      display: inline-block;
-      animation: 30s slide infinite linear;
-      @include mobile {
-        animation-duration: 20s;
-      }
+      display: flex;
+      align-items: center; // Asegura el centrado vertical del contenido
+      gap: 40px;
+      justify-content: space-around;
+      animation: scroll-horizontal 20s linear infinite;
 
       img {
-        height: 60px;
-        margin: 0 40px;
+        height: 75px; // Mantiene la relación de aspecto
+      }
+    }
 
-        @include mobile {
-          height: 40px;
-          margin: 0 20px;
+    .logos-slide-copy {
+      animation: scroll-horizontal 20s linear infinite;
+      animation-delay: 10s;
+    }
+  }
+
+  @keyframes scroll-horizontal {
+    0% {
+      left: 100%;
+    }
+    100% {
+      left: -100%;
+    }
+  }
+
+  @include mobile {
+    .container {
+      height: 100px;
+
+      .logos-slide,
+      .logos-slide-copy {
+        top: 50%;
+      }
+      .logos-slide{
+
+        img {
+          height: 30px;
         }
       }
     }

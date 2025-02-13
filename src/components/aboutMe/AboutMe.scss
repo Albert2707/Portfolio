@@ -6,19 +6,11 @@
   justify-content: center;
 
   .container {
-    @include container();
     display: flex;
     align-items: center;
     height: 100%;
     justify-content: space-between;
     gap: 0;
-
-    @include mobile {
-      flex-direction: column-reverse;
-      justify-content: center;
-      padding: 60px 20px 0 20px;
-      gap: 20px;
-    }
 
     .left {
       display: flex;
@@ -166,6 +158,13 @@
           width: 350px;
         }
       }
+    }
+    @include container();
+    @include mobile {
+      flex-direction: column-reverse;
+      justify-content: center;
+      padding: 60px 20px 0 20px;
+      gap: 20px;
     }
   }
 }

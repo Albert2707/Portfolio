@@ -23,7 +23,7 @@ body {
 .section {
   height: calc(100vh - 60px);
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
 
   @media (max-width: 738px) {
     height: 100vh;

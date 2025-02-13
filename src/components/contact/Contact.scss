@@ -5,6 +5,7 @@
   background: rgb(34, 34, 34);
   display: flex;
   justify-content: center;
+  padding-bottom: 20px;
   position: relative;
 
   .container {
@@ -15,52 +16,20 @@
     justify-content: space-around;
     align-items: center;
 
-    @include tablet {
-      align-items: center;
-    }
-
-    @include mobile {
-      align-items: center;
-    }
-
     .top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
 
-      @include tablet {
-        justify-content: center;
-      }
-
-      @include mobile {
-        justify-content: center;
-      }
-
       .left {
         flex: 1;
         display: flex;
         align-items: center;
 
-        @include tablet {
-          display: none;
-        }
-
-        @include mobile {
-          display: none;
-        }
-
         .contactImage {
           width: 600px;
           object-fit: cover;
-
-          @include mobile {
-            width: 350px;
-          }
-
-          @include tablet {
-            width: 100%;
-          }
         }
       }
 
@@ -72,19 +41,11 @@
         justify-content: center;
         gap: 20px;
 
-        @include mobile {
-          max-width: 80%;
-        }
-
         h1 {
           font-size: 4rem;
           line-height: 1.0625;
           color: lightgray;
           align-self: flex-start;
-
-          @include mobile {
-            font-size: 2.25rem;
-          }
         }
 
         .form {
@@ -107,10 +68,32 @@
             color: lightgray;
             font-size: 1.105rem;
             width: 100%;
-&:nth-child(2),
-&:nth-child(3){
-  margin-top :5px ;
-}
+
+            &:nth-child(2),
+            &:nth-child(3) {
+              margin-top: 5px;
+            }
+
+            input,
+            textarea {
+              width: 100%;
+              padding: 10px;
+              border-radius: 6px;
+              caret-color: #f43f5e;
+              font-size: 1rem;
+              outline: 2px solid transparent;
+              outline-offset: 2px;
+              background-color: transparent;
+              border: 1px solid #444;
+              color: lightgray;
+              font-size: 1.105rem;
+              width: 100%;
+
+              &:nth-child(2),
+              &:nth-child(3) {
+                margin-top: 5px;
+              }
+            }
             input {
               width: 100%;
               padding: 10px;
@@ -135,28 +118,6 @@
             }
           }
 
-          textarea {
-            font-size: 1rem;
-            width: 100%;
-            padding: 10px;
-            resize: none;
-            border-radius: 6px;
-            caret-color: #f43f5e;
-            outline: 2px solid transparent;
-            outline-offset: 2px;
-            background-color: transparent;
-            border: 1px solid #444;
-            color: lightgray;
-
-            &::placeholder {
-              color: gray;
-            }
-
-            @include mobile {
-              padding: 15px;
-            }
-          }
-
           .btn-contact {
             width: 100%;
             height: 4rem;
@@ -166,16 +127,13 @@
             font-weight: 600;
             color: white;
             border: none;
-            border-radius: .25rem;
+            border-radius: 0.25rem;
             background-color: $rose;
             box-shadow: 12px 12px black;
-
-            @include mobile {
-              height: 3.5rem;
-            }
           }
         }
       }
+
     }
 
     .bottom {
@@ -184,10 +142,6 @@
       gap: 40px;
       width: 50%;
       margin-top: 20px;
-
-      @include mobile {
-        width: 80%;
-      }
 
       div {
         display: flex;
@@ -206,10 +160,6 @@
           line-height: 28px;
           font-weight: 500;
           color: gray;
-
-          @include mobile {
-            font-size: 1.125rem;
-          }
         }
       }
 
@@ -229,6 +179,68 @@
               height: 32px;
             }
           }
+        }
+      }
+    }
+
+    // Media queries
+  }
+  @include tablet {
+    .container {
+      align-items: center;
+
+      .top {
+        justify-content: center;
+
+        .left {
+          display: none;
+        }
+      }
+
+      .right {
+        max-width: 80%;
+      }
+    }
+  }
+
+  @include mobile {
+    .container {
+      align-items: center;
+
+      .top {
+        justify-content: center;
+
+        .left {
+          display: none;
+        }
+
+        .right {
+          h1 {
+            font-size: 2.25rem;
+          }
+
+          .form {
+            input {
+              padding: 15px;
+              height: 3.5em;
+            }
+
+            textarea {
+              padding: 15px;
+            }
+
+            .btn-contact {
+              height: 3.5rem;
+            }
+          }
+        }
+      }
+
+      .bottom {
+        width: 80%;
+
+        .middle {
+          font-size: 1.125rem;
         }
       }
     }
