@@ -56,7 +56,7 @@ const Contact = () => {
         }
       }
     }
-    return { valid: false };
+    return { valid: true };
   }, []);
 
   const clearFields = () => {
