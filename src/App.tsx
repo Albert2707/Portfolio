@@ -1,25 +1,23 @@
 import "./App.scss";
-import { lazy, useEffect } from "react";
-const ArrowUp = lazy(() => import("./components/arrowUp/ArrowUp"));
-const AboutMe = lazy(() => import("./components/aboutMe/AboutMe"));
-const ArrowDown = lazy(() => import("./components/arrowDown/ArrowDown"));
-const Contact = lazy(() => import("./components/contact/Contact"));
-const Navbar = lazy(() => import("./components/navbar/Navbar"));
-const ProgressBar = lazy(() => import("./components/progressBar/ProgressBar"));
-const Projects = lazy(() => import("./components/projects/Projects"));
-const Sidebar = lazy(() => import("./components/sidebar/Sidebar"));
-const Skills = lazy(() => import("./components/skills/Skills"));
-
+import ProgressBar from "./components/progressBar/ProgressBar";
+import Navbar from "./components/navbar/Navbar";
+import Sidebar from "./components/sidebar/Sidebar";
+import ArrowUp from "./components/arrowUp/ArrowUp";
+import AboutMe from "./components/aboutMe/AboutMe";
+import ArrowDown from "./components/arrowDown/ArrowDown";
+import Projects from "./components/projects/Projects";
+import Skills from "./components/skills/Skills";
+import Contact from "./components/contact/Contact";
+import { Separator } from "./components/ui/separator";
+import { Vault } from "./components/vault/Vault";
+import { useEffect } from "react";
 function App() {
 
   useEffect(() => {
-    // cada vez qwue cargue la web
-    // se desplaza al inicio
     const { hash } = window.location;
-    if (hash)  history.replaceState(null, "", window.location.pathname);
+    if (hash) history.replaceState(null, "", window.location.pathname);
     window.scrollTo(0, 0)
   }, [])
-
   return (
     <div>
       <ProgressBar />
@@ -30,6 +28,10 @@ function App() {
         <AboutMe />
         <ArrowDown />
       </section>
+      <div className="container mx-auto">
+        <Separator className="bg-[#333]" />
+      </div>
+      <Vault />
       <section id="projects" className="projects">
         <Projects />
       </section>
