@@ -1,3 +1,4 @@
+import { Marquee } from "../magicui/marquee";
 import "./Skills.scss";
 
 const logos = [
@@ -13,9 +14,6 @@ const logos = [
     "https://www.svgrepo.com/show/355133/mysql.svg",
     "https://www.svgrepo.com/show/448221/docker.svg",
     "https://www.svgrepo.com/show/452210/git.svg",
-    
-  ],
-  [
     "https://www.svgrepo.com/show/452185/css-3.svg",
     "https://www.svgrepo.com/show/452184/csharp.svg",
     "https://www.svgrepo.com/show/452228/html-5.svg",
@@ -28,18 +26,22 @@ const logos = [
     "https://www.svgrepo.com/show/354200/postgresql.svg",
     "https://www.svgrepo.com/show/373712/json.svg",
   ],
+  [
+  ],
 ];
 
 const Skills = () => {
   return (
     <div className="skills">
       <div className="container">
-        <div className="logos-slide">
+        <Marquee className="[--duration:20s]">
           {logos[0].map((logo, index) => (
-            <img key={index} src={logo} alt={`Logo ${index}`} loading="lazy" />
+            <img className="object-cover w-14 h-14" key={index} src={logo} alt={`Logo ${index}`} loading="lazy" />
           ))}
-        </div>
-        <div className="logos-slide logos-slide-copy">
+        </Marquee>
+        {/* <div className="logos-slide">
+        </div> */}
+        {/* <div className="logos-slide logos-slide-copy">
           {logos[0].map((logo, index) => (
             <img
               key={index + logos.length}
@@ -48,7 +50,7 @@ const Skills = () => {
               loading="lazy"
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
