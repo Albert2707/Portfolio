@@ -120,7 +120,7 @@ const Contact = () => {
             />
           </motion.div>
           <div className="right">
-            <h1>Email me</h1>
+            <h1>Contact me</h1>
             <form ref={form} action="" className="form" onSubmit={handleSubmit}>
               {show && (
                 <ConfettiExplosion particleCount={200} duration={3000} />
