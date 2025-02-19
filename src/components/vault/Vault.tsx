@@ -34,7 +34,7 @@ duration-500"/>
             <div className="w-40 h-40 overflow-hidden rounded-md">
               <img className="object-cover object-center w-full h-full" src="https://udemy-certificate.s3.amazonaws.com/image/UC-fe1995dd-c67e-49ea-b59c-8c9c37d135e6.jpg?v=1714487116000" alt="Mastering TypeScript" />
             </div>
-            <a href="https://www.udemy.com/certificate/UC-fe1995dd-c67e-49ea-b59c-8c9c37d135e6/" target="_blank" className="flex gap-2 items-center justify-center rounded-md overflow-hidden h-[36px] w-full z-10 group bg-white hover:text-transparent transition-all duration-300 active:scale-90 text-sm">
+            <a href="https://www.udemy.com/certificate/UC-fe1995dd-c67e-49ea-b59c-8c9c37d135e6/" target="_blank" className="flex gap-2 items-center justify-center rounded-md overflow-hidden h-[36px] w-full z-10 group bg-white transition-all duration-300 active:scale-90 text-sm">
               Credentials <ExternalLink className="w-4 h-4" />
             </a>
           </div>
@@ -44,7 +44,7 @@ duration-500"/>
             <div className="w-40 h-40 overflow-hidden rounded-md">
               <img className="object-cover object-center w-full h-full" src="https://media.licdn.com/dms/image/v2/D4E22AQF0BSNdUM82IQ/feedshare-shrink_1280/feedshare-shrink_1280/0/1715039040267?e=1742428800&v=beta&t=vqktVPvG9b9Chm5hTkFuRN3vcOOQ58v_0ZoB1HfmYXk" alt="Learning Reast APIs" />
             </div>
-            <a href="https://www.linkedin.com/learning/certificates/9639ebfbbc8e06f587425a6dfb1635edc55eddccb096849a1407d020ff13b98a" target="_blank" className="flex gap-2 items-center justify-center rounded-md overflow-hidden h-[36px] w-full z-10 group bg-white hover:text-transparent transition-all duration-300 active:scale-90 text-sm">
+            <a href="https://www.linkedin.com/learning/certificates/9639ebfbbc8e06f587425a6dfb1635edc55eddccb096849a1407d020ff13b98a" target="_blank" className="flex gap-2 items-center justify-center rounded-md overflow-hidden h-[36px] w-full z-10 group bg-white transition-all duration-300 active:scale-90 text-sm">
               Credentials <ExternalLink className="w-4 h-4" />
             </a>
           </div>
