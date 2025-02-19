@@ -40,7 +40,7 @@ const AboutMe = () => {
               whileTap={{ scale: 0.9 }}
               className="btnContact"
             >
-              Contract me
+              Contact me
             </motion.a>
             <ShineBorder
               color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
