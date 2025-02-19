@@ -12,15 +12,15 @@ import { Separator } from "./components/ui/separator";
 import { Vault } from "./components/vault/Vault";
 import { useEffect } from "react";
 function App() {
-  useEffect(() => {
-    const { hash } = window.location;
-    if (hash) history.replaceState(null, "", window.location.pathname);
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+    // const { hash } = window.location;
+    // if (hash) history.replaceState(null, "", window.location.pathname);
+    // window.scrollTo(0, 0);
+    // }, []);
   return (
-    <div>
-      <ProgressBar />
+    <>
       <Navbar />
+      <ProgressBar />
       <Sidebar />
       <ArrowUp />
       <section id="aboutMe" className="section">
@@ -36,7 +36,7 @@ function App() {
       </section>
       <Skills />
       <Contact />
-    </div>
+    </>
   );
 }
 
