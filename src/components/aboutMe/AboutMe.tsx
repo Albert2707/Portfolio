@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import TypeWriter from "../typeWriter/TypeWriter";
 import "./AboutMe.scss";
 import { useRef } from "react";
+import { ShineBorder } from "../magicui/shine-border";
 const AboutMe = () => {
   const imageRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -41,22 +42,17 @@ const AboutMe = () => {
             >
               Contract me
             </motion.a>
-            <motion.a
-              href="/resume/Resume.pdf"
-              download={true}
-              initial={{ x: 50}}
-              animate={{ x: 0 }}
-              transition={{
-                type: "spring",
-                damping: 30,
-                stiffness: 200,
-                duration: 0.1,
-              }}
-              whileTap={{ scale: 0.9 }}
-              className="btnResume"
+            <ShineBorder
+              color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+              className="overflow-hidden rounded-md btnResume"
             >
-              Resume
-            </motion.a>
+              <a
+                href="/resume/Resume.pdf"
+                download={true}
+              >
+                Resume
+              </a>
+            </ShineBorder>
           </div>
         </div>
         <motion.div
@@ -65,11 +61,7 @@ const AboutMe = () => {
           // transition={{ duration: 0.1 }}
           className="rigth"
         >
-          <img
-            className="image"
-            src="/images/home-office.svg"
-            alt=""
-          />
+          <img className="image" src="/images/home-office.svg" alt="" />
         </motion.div>
       </motion.div>
     </div>

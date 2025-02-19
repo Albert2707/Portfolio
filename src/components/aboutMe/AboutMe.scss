@@ -101,13 +101,14 @@
 
         .btnResume {
           background-color: rgb(30,30,30);
-          border-radius: .25rem;
-          padding: 0 2rem;
+          padding: 0 1rem;
           font-size: 1.2rem;
+          border:none;
+          overflow: hidden;
           line-height: 1.556;
           font-weight: 600;
           color: white;
-          width: 12rem;
+          width: 12rem !important;
           display: flex;
           text-decoration: none;
           height: 4rem;
