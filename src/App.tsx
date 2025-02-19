@@ -12,12 +12,11 @@ import { Separator } from "./components/ui/separator";
 import { Vault } from "./components/vault/Vault";
 import { useEffect } from "react";
 function App() {
-
   useEffect(() => {
     const { hash } = window.location;
     if (hash) history.replaceState(null, "", window.location.pathname);
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <ProgressBar />
@@ -36,9 +35,7 @@ function App() {
         <Projects />
       </section>
       <Skills />
-      <section id="contact" className="section">
-        <Contact />
-      </section>
+      <Contact />
     </div>
   );
 }
