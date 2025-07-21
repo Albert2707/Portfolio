@@ -1,37 +1,27 @@
 name: SCA Analysis
-
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+ push:
+  branches: [main]
+ pull_request:
+  branches: [main]
 
 jobs:
   snyk_scan:
     name: Análisis SCA con Snyk
     runs-on: ubuntu-latest
-
     steps:
-      - name: Clonar repositorio
-        uses: actions/checkout@v3
+     - name: Clonar repositorio
+       uses: actions/checkout@v3
 
-      - name: Instalar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
+     - name: Instalar nodejs 
+       uses: actions/setup-node@v4
+       with:
+         node-version: 20.x
 
-      - name: Ejecutar Snyk (test + monitor)
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          command: test
-          args: --severity-threshold=medium
-        continue-on-error: true
+     - name: Instalar snyk
+       run: npm install snyk -g
 
-      - name: Publicar resultados en Snyk
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          command: monitor
+     - name: Corremos las pruebas por snyk
+       run: snyk test
+       env:
+        SNYK_TOKEN: ${{secrets.SNYK_TOKEN}}
