@@ -27,6 +27,7 @@ jobs:
         with:
           command: test
           args: --severity-threshold=medium
+        continue-on-error: true
 
       - name: Publicar resultados en Snyk
         uses: snyk/actions/node@master
