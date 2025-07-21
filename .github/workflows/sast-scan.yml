@@ -1,0 +1,17 @@
+name: SAST SCAN
+
+on:
+ push: [main]
+ pull_request: [main]
+ workflow_dispatch:
+
+jobs:
+ name: SCAN Horusec
+ runs-on: ubuntu-latest
+
+ steps:
+  - name: CLONING REPO
+    uses: action/checkout@V3
+  
+  - name: RUN HORUSEC
+    run:  docker run --name sast -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/src horuszup/horusec-cli:v2.7 horusec start -p /src -P $(pwd) || failure=truezsd
