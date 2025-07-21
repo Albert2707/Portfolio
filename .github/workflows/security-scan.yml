@@ -54,3 +54,13 @@ jobs:
   
       - name: RUN HORUSEC
         run:  docker run --name sast -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/src horuszup/horusec-cli:v2.7 horusec start -p /src -P $(pwd) || failure=truezsd
+      
+      - name: Copiar reporte de Horusec desde el contenedor
+        run: |
+          docker cp sast:/src/.horusec/report.txt ./report.txt
+
+      - name: Subir reporte de horusec
+        uses: actions/upload-artifact@v4
+        with:
+         name: horusec-report
+         path: ./report.txt
