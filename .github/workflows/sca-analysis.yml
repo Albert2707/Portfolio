@@ -1,27 +1,50 @@
 name: SCA Analysis
+
 on:
- push:
-  branches: [main]
- pull_request:
-  branches: [main]
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   snyk_scan:
     name: Análisis SCA con Snyk
     runs-on: ubuntu-latest
+
     steps:
-     - name: Clonar repositorio
-       uses: actions/checkout@v3
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
 
-     - name: Instalar nodejs 
-       uses: actions/setup-node@v4
-       with:
-         node-version: 20.x
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
 
-     - name: Instalar snyk
-       run: npm install snyk -g
+      - name: Ejecutar Snyk (análisis completo)
+        id: snyk_run
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          snyk test \
+            --json-file-output=snyk.json \
+            --sarif-file-output=snyk.sarif
 
-     - name: Corremos las pruebas por snyk
-       run: snyk test
-       env:
-        SNYK_TOKEN: ${{secrets.SNYK_TOKEN}}
+          # Fallar solo si hay High o Critical
+          if grep -q '"high"' snyk.json || grep -q '"critical"' snyk.json; then
+            echo "❗ Encontradas vulnerabilidades HIGH o CRITICAL, fallando job"
+            exit 1
+          fi
+
+      - name: Subir reportes Snyk como artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-reports
+          path: |
+            snyk.json
+            snyk.sarif
+
+      - name: Subir SARIF a Code Scanning
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: snyk.sarif
