@@ -6,61 +6,56 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
- 
+
 jobs:
   snyk_scan:
     name: Análisis SCA con Snyk
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar repositorio
-        uses: actions/checkout@v3
-
-      - name: Instalar Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-
-      - name: Instalar snyk
-        run: npm install snyk -g
-
-      - name: Ejecutar Snyk (análisis completo)
-        id: snyk_run
+      - run: npm install snyk -g
+      - id: snyk_run
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        run: |
-          snyk test --json-file-output=snyk.json --sarif-file-output=snyk.sarif
-
-      - name: Subir reportes Snyk como artifacts
-        uses: actions/upload-artifact@v4
+        run: snyk test --json-file-output=snyk.json --sarif-file-output=snyk.sarif
+      - uses: actions/upload-artifact@v4
         with:
           name: snyk-reports
           path: |
             snyk.json
             snyk.sarif
-
-      - name: Subir SARIF a Code Scanning
-        uses: github/codeql-action/upload-sarif@v3
+      - uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: snyk.sarif
+
   sca_scan:
     name: SCAN Horusec
     runs-on: ubuntu-latest
 
     steps:
-      - name: CLONING REPO
-        uses: actions/checkout@v3
-  
-      - name: RUN HORUSEC
-        run:  docker run --name sast -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/src horuszup/horusec-cli:v2.7 horusec start -p /src -P $(pwd) || failure=truezsd
-      
-      - name: Copiar reporte de Horusec desde el contenedor
-        run: |
-          docker cp sast:/src/.horusec/report.txt ./report.txt
+      - uses: actions/checkout@v3
 
-      - name: Subir reporte de horusec
+      - name: Ejecutar Horusec y generar reporte JSON
+        run: |
+          docker run --name sast \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            -v "$(pwd)":/src \
+            horuszup/horusec-cli:v2.7 \
+            horusec start \
+              -p /src \
+              -P "$(pwd)" \
+              --json-output-file /src/horusec-report.json || true
+
+      - name: Verificar reporte generado
+        run: test -f horusec-report.json
+
+      - name: Subir reporte de Horusec como artefacto
         uses: actions/upload-artifact@v4
         with:
-         name: horusec-report
-         path: ./report.txt
+          name: horusec-report
+          path: horusec-report.json
