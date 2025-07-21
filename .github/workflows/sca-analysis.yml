@@ -26,15 +26,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         run: |
-          snyk test \
-            --json-file-output=snyk.json \
-            --sarif-file-output=snyk.sarif
-
-          # Fallar solo si hay High o Critical
-          if grep -q '"high"' snyk.json || grep -q '"critical"' snyk.json; then
-            echo "❗ Encontradas vulnerabilidades HIGH o CRITICAL, fallando job"
-            exit 1
-          fi
+          snyk test --json-file-output=snyk.json --sarif-file-output=snyk.sarif
 
       - name: Subir reportes Snyk como artifacts
         uses: actions/upload-artifact@v4
@@ -43,8 +35,3 @@ jobs:
           path: |
             snyk.json
             snyk.sarif
-
-      - name: Subir SARIF a Code Scanning
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: snyk.sarif
